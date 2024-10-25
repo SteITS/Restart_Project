@@ -100,7 +100,6 @@ header nav ul li a:hover {
 }
 
 main {
-    padding: 1em;
     flex: 1;
     display: flex;
 }
@@ -251,20 +250,16 @@ form button:hover, .selected-card button:hover {
     background: white;
     padding: 10px;
     border-radius: 5px;
-
     text-align: center;
 }
 .card{
     padding: 10px;
+    width: 180px;
 }
 
 .selected-card{
     padding: 10px 10px 0px 10px;
     justify-content: center;
-}
-
-.card {
-    width: 180px;
 }
 
 .selected-card {
@@ -278,9 +273,13 @@ form button:hover, .selected-card button:hover {
     height: auto;
 }
 
-#sleeves {
+#sleeves, #home {
     width: 70%;
     margin: 1.5em auto;
+}
+
+#sleeves {
+    margin-top: 0;
 }
 
 #card-details {
@@ -453,6 +452,6 @@ dl li{
     }
 }
 
-#sleeves, #card-details{
+#sleeves, #card-details, #home{
     animation: fadeIn 1s ease-in;
 }
