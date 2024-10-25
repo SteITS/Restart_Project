@@ -250,6 +250,8 @@ Contiene le informazioni sugli utenti registrati.
 - **name** (varchar 255): Nome dell'utente.
 - **password** (varchar 255): Password dell'utente.
 - **email** (varchar 255): Email dell'utente.
+- **dob** (date): Data di nascita dell'utente.
+- **phone** (varchar 255): Numero di telefono dell'utente.
 
 ### users_roles
 Associa i ruoli agli utenti.
