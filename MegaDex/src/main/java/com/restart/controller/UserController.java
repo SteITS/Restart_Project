@@ -60,6 +60,11 @@ public class UserController {
     public ResponseEntity<UserDto> updateSelf(@RequestBody UserDto userDto) {
         User user = userService.getAuthenticatedUser();
         userDto.setId(user.getId());
+
+        if(userService.findUserByEmail(userDto.getEmail()) != user){
+            return ResponseEntity.status(HttpStatus.NOT_MODIFIED) // 304
+                    .body(userDto);
+        }
         if(!userService.checkEmail(userDto.getEmail())){
             return ResponseEntity.status(HttpStatus.NOT_MODIFIED) // 304
                     .body(userDto);
