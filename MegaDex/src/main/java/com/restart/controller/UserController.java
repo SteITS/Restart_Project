@@ -37,6 +37,14 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
 
+    @DeleteMapping("auth/deleteSelf")
+    public ResponseEntity<Void> deleteSelf() {
+        User user = userService.getAuthenticatedUser();
+        userService.deleteUserById(user.getId());
+            return ResponseEntity.ok().build();
+
+    }
+
     // Aggiorna l'utente con i dati passati nel body
     @PutMapping("auth/updateUser")
     public ResponseEntity<UserDto> updateUser(@RequestBody UserDto userDto) {
@@ -67,4 +75,6 @@ public class UserController {
             return ResponseEntity.noContent().build();
         }
     }
+
+
 }

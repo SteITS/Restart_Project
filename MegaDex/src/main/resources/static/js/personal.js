@@ -304,7 +304,33 @@ function setPlaceholders() {
             errorModal.style.display = "none";
         });
     }
+function deleteUser() {
+    fetch('http://localhost:8080/api/auth/deleteSelf', {
+        method: 'DELETE',
+        headers: {
+        }
+    })
+        .then(response => {
+            if (response.ok) {
+                alert("Eliminazione avvenuta con successo!");
+                window.location.href = "login.html";
+            }
+        })
+        .catch(error => {
+            // Mostra un messaggio di errore
+            errorMessage.textContent = error;
+            errorModal.style.display = "block";
+        });
+}
 
+// Funzione per gestire la conferma e l'azione
+function confirmDelete() {
+    if (confirm("Sei sicuro di voler procedere? Eliminando il tuo account perderai la tua collezione e i mazzi salvati!")) {
+        deleteUser(); // Se l'utente conferma, esegui la funzione
+    } else {
+        alert("Operazione annullata."); // Messaggio se l'utente rifiuta
+    }
+}
 
 
 
