@@ -3,7 +3,7 @@ Questa documentazione fornisce una panoramica completa delle API disponibili per
 <span style="color:red"> Importante: </span> È importante notare che tutte le API che iniziano con ``/auth`` richiedono l'autenticazione dell'utente per poter essere utilizzate.
 ## Indice
 - [GET Endpoints](#get-endpoints)
-  - [/index](#index)
+  - [/login.html?logout](#loginhtmllogout)
   - [/success](#success)
   - [/cards](#cards)
   - [/api/auth/filtered-in-sleeves](#apiauthfiltered-in-sleeves)
@@ -12,28 +12,36 @@ Questa documentazione fornisce una panoramica completa delle API disponibili per
   - [/api/auth/authUser](#apiauthauthuser)
   - [/api/auth/mySleeves](#apiauthmysleeves)
   - [/api/auth/mySleeve](#apiauthmysleeve)
-  - [api/deb/ratings](#apidebratings)
+  - [/api/deb/ratings](#apidebratings)
 - [POST Endpoints](#post-endpoints)
   - [/register/save](#registersave)
-  - [api/auth/decksByUser](#apiauthdecksbyuser)
-  - [api/auth/addDeck](#apiauthadddeck)
-  - [api/deb/removeDeck](#apidebremovedeck)
-  - [api/deb/validateDeck](#apidebvalidatedeck)
-  - [api/deb/getRatingsByDeck](#apidebgetratingsbydeck)
-  - [api/auth/updateRating](#apiauthupdaterating)
-  - [api/auth/removeRating](#apiauthremoverating)
-  - [api/auth/updateSleeve](#apiauthupdatesleeve)
-  - [api/auth/removeSleeve](#apiauthremovesleeve)
-  - [api/auth/updateSlot](#apiauthupdateslot)
-  - [api/auth/removeSlot](#apiauthremoveslot)
-  - [api/auth/saveSlots](#apiauthsaveslots)
+  - [/login](#login)
+  - [/api/auth/decksByUser](#apiauthdecksbyuser)
+  - [/api/auth/addDeck](#apiauthadddeck)
+  - [/api/deb/removeDeck](#apidebremovedeck)
+  - [/api/deb/validateDeck](#apidebvalidatedeck)
+  - [/api/deb/getRatingsByDeck](#apidebgetratingsbydeck)
+  - [/api/auth/updateRating](#apiauthupdaterating)
+  - [/api/auth/removeRating](#apiauthremoverating)
+  - [/api/auth/updateSleeve](#apiauthupdatesleeve)
+  - [/api/auth/removeSleeve](#apiauthremovesleeve)
+  - [/api/auth/updateSlot](#apiauthupdateslot)
+  - [/api/auth/removeSlot](#apiauthremoveslot)
+  - [/api/auth/saveSlots](#apiauthsaveslots)
 - [PUT Endpoints](#apiput-endpoints)
-  - [/auth/updateUser](#apiauthupdateuser)
+  - [/api/auth/updateUser](#apiauthupdateuser)
+  - [/api/auth/updateSelf](#apiauthupdateself)
 - [DELETE Endpoints](#apidelete-endpoints)
-  - [/auth/deleteUser/{id}](#apiauthdeleteuserid)
+  - [/api/auth/deleteUser/{id}](#apiauthdeleteuserid)
+  - [/api/auth/deleteSelf](#apiauthdeleteself)
 
 ## <b>GET Endpoints</b>
 
+### `/login.html?logout`
+- **Descrizione:** Esegue il logout dell'utente.
+- **Metodo:** `GET`
+- **Risposta:** `200` - Ok.
+- **Controller**: `AuthController`  
 
 ### `/success`
 - **Descrizione:** Verifica che l'autenticazione sia avvenuta con successo.
@@ -117,7 +125,7 @@ http://localhost:8080/api/auth/mySleeves
 http://localhost:8080/api/auth/mySleeve?cardRequest=base1-1 //Bisogna essere loggato con un utente che possiede la carta con id: base1-1
 ```
 
-### `api/deb/ratings`
+### `/api/deb/ratings`
 - **Descrizione:** Recupera tutti i rating.
 - **Metodo:** `GET`
 - **Controller**: `RatingController`  
@@ -145,6 +153,21 @@ body(x-www-form-urlencoded):
 "key":"password","value":"Password123!","description":"","type":"text",
 "key":"dob","value":"2000-12-12","description":"","type":"text",
 "key":"phone","value":"0123456789","description":"","type":"text"
+
+```
+
+### `/login`
+- **Descrizione:** Login di un utente già registrato.
+- **Metodo:** `POST`
+- **Controller**: `AuthController`  
+- **Corpo:** `username`(email) - email dell'utente registrato; `password` - password dell'utente registrato
+- **Risposta:** `UserDto` - Dati dell'utente registrato o errore.
+- **Esempio chiamata**:
+```json
+http://localhost:8080/login
+body(x-www-form-urlencoded):
+"key":"username","value":"prova1@gmail.com","description":"","type":"text",
+"key":"password","value":"Password123!","description":"","type":"text"
 
 ```
 
