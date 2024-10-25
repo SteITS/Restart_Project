@@ -79,7 +79,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Boolean checkPassword(String password) {
-        String passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&_])[A-Za-z\\d@$!%*?&_]{8,}$";
+        String passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&_]).{12,}$";
         Pattern pattern = Pattern.compile(passwordRegex);
         Matcher matcher = pattern.matcher(password);
         return matcher.matches() && password.length() >= 12;
@@ -128,7 +128,7 @@ public class UserServiceImpl implements UserService {
     }
 
     //Metodo per ricercare il DTO di uno specifico utente
-    private UserDto mapToUserDto(User user) {
+    public UserDto mapToUserDto(User user) {
         // Crea un nuovo oggetto UserDto
         UserDto userDto = new UserDto();
 
@@ -186,5 +186,21 @@ public class UserServiceImpl implements UserService {
         } else {
             throw new RuntimeException("User not found with ID: " + userDto.getId());
         }
-    } 
+    }
+
+    @Override
+    public void updateSelf(UserDto userDto) {
+            User updatedUser = getAuthenticatedUser();
+            // Update the fields
+            updatedUser.setName(userDto.getFirstName() + " " + userDto.getLastName());
+            updatedUser.setEmail(userDto.getEmail());
+            if (userDto.getPassword() != null
+                    && !userDto.getPassword().isEmpty()) {
+                updatedUser.setPassword(passwordEncoder.encode(userDto.getPassword()));
+            }
+            updatedUser.setDob(userDto.getDob());
+            updatedUser.setPhone(userDto.getPhone());
+            // Save the updated user
+            userRepository.save(updatedUser);
+    }
 }

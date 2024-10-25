@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MegaDex</title>
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script src="js/personal.js" defer></script>
+</head>
+<body>
+<header>
+    <img src="media/MegaDex-17-09-2024.png" alt="MegaDex Logo" class="logo">
+    <nav>
+        <ul>
+            <li><a href="/index.html">HOME</a></li>
+            <li><a href="/deckbuilder.html">DECKBUILDER</a></li>
+            <li><a href="/community.html">COMMUNITY</a></li>
+            <li><a href="/sleeve.html">COLLEZIONE</a></li>
+            <li><a href="/personal.html" class="active">AREA PERSONALE</a></li>
+            <li>
+                <div id="language-switch">
+                    <button id="switch-lang">
+                        <img id="flag-image" src="media/it.png" alt="Language Flag" class="flag">
+                    </button>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section id="home">
+        <h1>Dati Anagrafici</h1>
+        <form id="data-form" method="put">
+        <table>
+            <tbody>
+            <tr>
+                <td><strong>Nome:</strong></td>
+                <td><input type="text" placeholder="Mario" disabled name="firstName" id="firstName-input"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Cognome:</strong></td>
+                <td><input type="text" placeholder="" disabled name="lastName" id="lastName-input"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <input type="text" name="id" value="0" style="display:none">
+                <td><strong>Email:</strong></td>
+                <td><input type="text" placeholder="" disabled name="email" id="email-input"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Password:</strong></td>
+                <td><input type="text" placeholder="************" value="" disabled name="password" id="password-input"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Data di Nascita:</strong></td>
+                <td><input type="date" value="" disabled name="dob" id="dob-input"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><strong>Numero di Telefono:</strong></td>
+                <td><input type="text" placeholder="" disabled name="phone" id="phone-input"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><button onclick="confirmDelete()" class="data">Cancella utente</button></td>
+                <td><button type="button" class="data" onclick="enableInput()"><i class="bi bi-pencil-square"></i><span> Modifica</span></button></td>
+                <td><button onclick="editSelf()" class="data">Salva</button></td>
+            </tr>
+            </tbody>
+        </table>
+        </form>
+    </section>
+
+    <section id="deck-list">
+        <h1>Mazzi personali</h1>
+        <div class="deck-list">
+
+        </div>
+    </section>
+</main>
+<div id="error-modal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="error-message">Si è verificato un errore nella registrazione. Riprova.</p>
+    </div>
+</div>
+</body>
+</html>
+<!--        <table>-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--                <th>Nome Mazzo</th>-->
+<!--                <th>Tipi</th>-->
+<!--                <th>Azioni</th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--            <tr class="deck-row" >-->
+<!--                <td >Dragofiamma</td>-->
+<!--                <td class="button-group">-->
+<!--                    <button class="icon-btn" ><i class="bi bi-share-fill"></i><span>Pubblica</span></button>-->
+<!--                    <button class="icon-btn" ><i class="bi bi-pencil-square"></i><span> Modifica</span></button>-->
+<!--                    <button class="icon-btn" ><i class="bi bi-trash-fill"></i><span> Cancella</span></button>-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--            <tr class="details-row" style="display: none;">-->
+<!--                <td colspan="3">-->
+<!--                    <div class="card-container-js" id="'details-'">-->
+<!--                        &lt;!&ndash; Le carte del mazzo verranno aggiunte dinamicamente qui &ndash;&gt;-->
+<!--                    </div>-->
+<!--                </td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--        </table>-->

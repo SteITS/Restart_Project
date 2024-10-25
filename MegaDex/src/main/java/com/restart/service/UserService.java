@@ -14,6 +14,7 @@ public interface UserService {
     Boolean checkEmail(String email);
 
     User getAuthenticatedUser();
+    UserDto mapToUserDto(User user);
 
     User findUserByEmail(String email);
 
@@ -26,4 +27,5 @@ public interface UserService {
     void deleteUserById(Integer id);
     
     void updateUser(UserDto userDto);
+    void updateSelf(UserDto userDto);
 }

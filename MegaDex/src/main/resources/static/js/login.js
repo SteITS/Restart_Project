@@ -121,7 +121,7 @@ document.addEventListener('submit', function() {
     })
         .then(response => {
             if (response.ok) {
-                window.location.href = "personale.html";
+                window.location.href = "personal.html";
                 return; // Se la risposta è un JSON
             }
             if(response.status === 403){
