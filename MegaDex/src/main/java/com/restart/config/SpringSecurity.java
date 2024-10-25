@@ -29,7 +29,8 @@ public class SpringSecurity {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeHttpRequests((authorize) ->
-                        authorize.requestMatchers("/register/**").permitAll()
+                        authorize.requestMatchers("/register.html").permitAll()
+                                    .requestMatchers("/register/save").permitAll()
                         		    .requestMatchers("/cards/**").permitAll()
                                 .requestMatchers("/api/auth/**").hasAnyRole("ADMIN", "USER")
                                 .requestMatchers("/api/deb/**").permitAll()
@@ -41,7 +42,7 @@ public class SpringSecurity {
                                 .requestMatchers("/index.html").permitAll()
                                 .requestMatchers("/community.html").permitAll()
                                 .requestMatchers("/sleeve.html").hasAnyRole("ADMIN", "USER")
-                                .requestMatchers("/personale.html").hasAnyRole("ADMIN", "USER")
+                                .requestMatchers("/personal.html").hasAnyRole("ADMIN", "USER")
                                 .requestMatchers("/deckbuilder.html").hasAnyRole("ADMIN", "USER")
                                 .requestMatchers("/").permitAll()
                                 .requestMatchers("/users").hasRole("ADMIN")
@@ -50,7 +51,7 @@ public class SpringSecurity {
                         form -> form
                                 .loginPage("/login.html")
                                 .loginProcessingUrl("/login")
-                                .defaultSuccessUrl("/personale.html", true)
+                                .defaultSuccessUrl("/personal.html", true)
                                 .failureHandler((request, response, exception) -> {
                                     // Imposta il codice di stato HTTP personalizzato
                                     response.setStatus(HttpServletResponse.SC_FORBIDDEN); // Cambia il codice secondo le tue necessità

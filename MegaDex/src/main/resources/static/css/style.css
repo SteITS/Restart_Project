@@ -430,7 +430,7 @@ dl li {
 #sleeves h1, #card-details h1 {
     color: #333;
     margin-bottom: 20px;
-
+}
 .modal {
     display: none;
     position: fixed;
@@ -458,5 +458,4 @@ dl li {
     font-size: 20px;
     float: right;
     cursor: pointer;
-
 }
