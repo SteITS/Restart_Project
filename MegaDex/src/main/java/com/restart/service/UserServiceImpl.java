@@ -165,4 +165,26 @@ public class UserServiceImpl implements UserService {
     public void deleteUserById(Integer id) {
         userRepository.deleteById(id);
     }
+    
+    // Metodo per aggiornare un utente nel database
+    @Override
+    public void updateUser(UserDto userDto) {
+        // Find the existing user by ID
+        Optional<User> existingUserOptional = userRepository.findById(userDto.getId());
+        if (existingUserOptional.isPresent()) {
+            User existingUser = existingUserOptional.get();
+            // Update the fields
+            existingUser.setName(userDto.getFirstName() + " " + userDto.getLastName());
+            existingUser.setEmail(userDto.getEmail());
+            if (userDto.getPassword() != null && !userDto.getPassword().isEmpty()) {
+                existingUser.setPassword(passwordEncoder.encode(userDto.getPassword()));
+            }
+            existingUser.setDob(userDto.getDob());
+            existingUser.setPhone(userDto.getPhone());
+            // Save the updated user
+            userRepository.save(existingUser);
+        } else {
+            throw new RuntimeException("User not found with ID: " + userDto.getId());
+        }
+    } 
 }

@@ -24,4 +24,6 @@ public interface UserService {
     Optional<User> findUserById(Integer id);
     
     void deleteUserById(Integer id);
+    
+    void updateUser(UserDto userDto);
 }
