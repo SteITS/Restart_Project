@@ -3,7 +3,7 @@ Questa documentazione fornisce una panoramica completa delle API disponibili per
 <span style="color:red"> Importante: </span> È importante notare che tutte le API che iniziano con ``/auth`` richiedono l'autenticazione dell'utente per poter essere utilizzate.
 ## Indice
 - [GET Endpoints](#get-endpoints)
-  - [/login.html?logout](#loginhtmllogout)
+  - [/logout](#logout)
   - [/success](#success)
   - [/cards](#cards)
   - [/api/auth/filtered-in-sleeves](#apiauthfiltered-in-sleeves)
@@ -37,7 +37,7 @@ Questa documentazione fornisce una panoramica completa delle API disponibili per
 
 ## <b>GET Endpoints</b>
 
-### `/login.html?logout`
+### `/logout`
 - **Descrizione:** Esegue il logout dell'utente.
 - **Metodo:** `GET`
 - **Risposta:** `200` - Ok.
