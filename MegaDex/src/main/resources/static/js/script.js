@@ -38,16 +38,30 @@ document.addEventListener("DOMContentLoaded", function() {
             deckbuilderLink: "DECKBUILDER",
             communityLink: "COMMUNITY",
             loginLink: "AREA PERSONALE",
+<<<<<<< Updated upstream
+=======
+			collectionLink: "RACCOGLITORE",
+>>>>>>> Stashed changes
             footerTitle: "Multinazionalona SPA",
             footerAddress: "Via Esempio 123, 00100 Roma, Italia",
             footerPhone: "+39 012 3456789",
             footerEmail: "info@multinazionalona.it",
             sleevesTitle: "Esplora le carte",
+<<<<<<< Updated upstream
             filterLabelSort: "Ordina per:",
             filterLabelType: "Tipo:",
             filterLabelSubtype: "Sottotipo:",
             filterLabelSupertype: "Supertipo:",
             filterLabelRelease: "Espansione:",
+=======
+			sortBy: "Ordina per:",
+			filters: "Filters:",
+			poss: "Possedute:",
+			typeBy: "Tipo:",
+			subtype:"Sottotipo:",
+			supertype:"Supertipo:",
+			expansion:"Espansione:",
+>>>>>>> Stashed changes
             currentPageText: "Pagina 1 di "
         },
         en: {
@@ -60,16 +74,30 @@ document.addEventListener("DOMContentLoaded", function() {
             deckbuilderLink: "DECKBUILDER",
             communityLink: "COMMUNITY",
             loginLink: "MY ACCOUNT",
+<<<<<<< Updated upstream
+=======
+			collectionLink: "BINDER",
+>>>>>>> Stashed changes
             footerTitle: "Multinazionalona SPA",
             footerAddress: "Via Example 123, 00100 Rome, Italy",
             footerPhone: "+39 012 3456789",
             footerEmail: "info@multinazionalona.it",
             sleevesTitle: "Explore the Cards",
+<<<<<<< Updated upstream
             filterLabelSort: "Sort by:",
             filterLabelType: "Type:",
             filterLabelSubtype: "Subtype:",
             filterLabelSupertype: "Supertype:",
             filterLabelRelease: "Expansion:",
+=======
+			sortBy: "Sort by:",
+			filters: "Filters:",
+			poss: "Owned:",
+			typeBy: "Type:",
+			subtype:"Subtype:",
+			supertype:"Supertype:",
+			expansion:"Expansion:",
+>>>>>>> Stashed changes
             currentPageText: "Page 1 of "
         }
     };
@@ -84,18 +112,28 @@ document.addEventListener("DOMContentLoaded", function() {
         homeLink: document.querySelector('nav ul li:nth-child(1) a'),
         deckbuilderLink: document.querySelector('nav ul li:nth-child(2) a'),
         communityLink: document.querySelector('nav ul li:nth-child(3) a'),
+<<<<<<< Updated upstream
         loginLink: document.querySelector('nav ul li:nth-child(4) a'),
+=======
+		collectionLink: document.querySelector('nav ul li:nth-child(4) a'),
+        loginLink: document.querySelector('nav ul li:nth-child(5) a'),
+>>>>>>> Stashed changes
         footerTitle: document.querySelector('.footer-info h3'),
         footerAddress: document.querySelector('.footer-info p:nth-child(2)'),
         footerPhone: document.querySelector('.footer-info p:nth-child(3)'),
         footerEmail: document.querySelector('.footer-info p:nth-child(4)'),
         sleevesTitle: document.querySelector('#sleeves h1'), // Added the sleeves title
+<<<<<<< Updated upstream
 		filterLabelSort: document.querySelector('#sort-menu').previousSibling, // Ordina per
 		    filterLabelType: document.querySelector('#filter-type').previousSibling, // Tipo
 		    filterLabelSubtype: document.querySelector('#filter-subtype').previousElementSibling, // Sottotipo
 		    filterLabelSupertype: document.querySelector('#filter-supertype').previousElementSibling, // Supertipo
 		    filterLabelRelease: document.querySelector('#filter-release').previousElementSibling, // Espansione
 		    currentPageText: document.querySelector('#current-page') // Pagina corrente
+=======
+		    currentPageText: document.querySelector('#current-page') // Pagina corrente
+
+>>>>>>> Stashed changes
     };
 
     // Funzione per aggiornare la lingua della pagina
@@ -111,16 +149,32 @@ document.addEventListener("DOMContentLoaded", function() {
         elementsToTranslate.deckbuilderLink.textContent = translation.deckbuilderLink;
         elementsToTranslate.communityLink.textContent = translation.communityLink;
         elementsToTranslate.loginLink.textContent = translation.loginLink;
+<<<<<<< Updated upstream
         elementsToTranslate.footerTitle.textContent = translation.footerTitle;
         elementsToTranslate.footerAddress.textContent = translation.footerAddress;
         elementsToTranslate.footerPhone.textContent = translation.footerPhone;
         elementsToTranslate.footerEmail.textContent = translation.footerEmail;
+=======
+		elementsToTranslate.collectionLink.textContent = translation.collectionLink;
+   /*     elementsToTranslate.footerTitle.textContent = translation.footerTitle;
+        elementsToTranslate.footerAddress.textContent = translation.footerAddress;
+        elementsToTranslate.footerPhone.textContent = translation.footerPhone;
+        elementsToTranslate.footerEmail.textContent = translation.footerEmail; 
+>>>>>>> Stashed changes
 		elementsToTranslate.filterLabelSort.textContent = translation.filterLabelSort;
 		        elementsToTranslate.filterLabelType.textContent = translation.filterLabelType;
 		        elementsToTranslate.filterLabelSubtype.textContent = translation.filterLabelSubtype;
 		        elementsToTranslate.filterLabelSupertype.textContent = translation.filterLabelSupertype;
 		        elementsToTranslate.filterLabelRelease.textContent = translation.filterLabelRelease;
 		        elementsToTranslate.currentPageText.textContent = `Pagina ${currentPage} di ${totalPages}`; // Assuming these variables are defined
+<<<<<<< Updated upstream
+=======
+				*/document.querySelector('label[for="sort-menu"]').textContent = translation.sortBy;
+				document.querySelector('label[for="filter-type"]').textContent = translation.typeBy;
+				document.querySelector('label[for="filter-subtype"]').textContent = translation.subtype;
+				document.querySelector('label[for="filter-supertype"]').textContent = translation.supertype;
+				document.querySelector('label[for="filter-release"]').textContent = translation.expansion;
+>>>>>>> Stashed changes
     }
 
     // Aggiungi gli event listener per i pulsanti delle bandiere

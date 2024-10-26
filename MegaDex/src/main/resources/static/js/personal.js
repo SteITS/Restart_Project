@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 document.addEventListener("DOMContentLoaded", function() {
     setPlaceholders();
     const translations = {
@@ -45,6 +46,115 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     };
 
+=======
+setPlaceholders();
+const translations = {
+    en: {
+        home: "HOME",
+        deckbuilder: "DECKBUILDER",
+        community: "COMMUNITY",
+        collection: "BINDER",
+        personalArea: "MY ACCOUNT",
+        registrationTitle: "Personal Data",
+        firstNameLabel: "First Name:",
+        lastNameLabel: "Last Name:",
+        emailLabel: "Email:",
+        passwordLabel: "Password:",
+        dobLabel: "Date of Birth:",
+        phoneLabel: "Phone Number:",
+        firstNamePlaceholder: "Mario",
+        lastNamePlaceholder: "Last Name",
+        emailPlaceholder: "Email",
+        passwordPlaceholder: "************",
+        dobPlaceholder: "Date of Birth",
+        phonePlaceholder: "Phone Number",
+        deleteUser: "Delete User",
+        logout: "Logout",
+        modify: "Modify",
+        save: "Save",
+        personalDecks: "Personal Decks",
+        errorMessage: "An error occurred during registration. Please try again."
+    },
+    it: {
+        home: "HOME",
+        deckbuilder: "DECKBUILDER",
+        community: "COMMUNITY",
+        collection: "COLLEZIONE",
+        personalArea: "AREA PERSONALE",
+        registrationTitle: "Dati Anagrafici",
+        firstNameLabel: "Nome:",
+        lastNameLabel: "Cognome:",
+        emailLabel: "Email:",
+        passwordLabel: "Password:",
+        dobLabel: "Data di Nascita:",
+        phoneLabel: "Numero di Telefono:",
+        firstNamePlaceholder: "Mario",
+        lastNamePlaceholder: "Cognome",
+        emailPlaceholder: "Email",
+        passwordPlaceholder: "************",
+        dobPlaceholder: "Data di Nascita",
+        phonePlaceholder: "Numero di Telefono",
+        deleteUser: "Cancella utente",
+        logout: "Logout",
+        modify: "Modifica",
+        save: "Salva",
+        personalDecks: "Mazzi personali",
+        errorMessage: "Si è verificato un errore nella registrazione. Riprova."
+    }
+};
+
+// Function to switch languages
+function switchLanguage(lang) {
+    // Update navigation links
+    document.querySelector("a[href='/index.html']").textContent = translations[lang].home;
+    document.querySelector("a[href='/deckbuilder.html']").textContent = translations[lang].deckbuilder;
+    document.querySelector("a[href='/community.html']").textContent = translations[lang].community;
+    document.querySelector("a[href='/sleeve.html']").textContent = translations[lang].collection;
+    document.querySelector("a[href='/personal.html']").textContent = translations[lang].personalArea;
+
+    // Update section titles
+    document.querySelector("#registration-title").textContent = translations[lang].registrationTitle;
+    document.querySelector("#deck-list h1").textContent = translations[lang].personalDecks;
+
+    // Update form labels by id
+    document.getElementById("firstName-label").textContent = translations[lang].firstNameLabel;
+    document.getElementById("lastName-label").textContent = translations[lang].lastNameLabel;
+    document.getElementById("email-label").textContent = translations[lang].emailLabel;
+    document.getElementById("password-label").textContent = translations[lang].passwordLabel;
+    document.getElementById("dob-label").textContent = translations[lang].dobLabel;
+    document.getElementById("phone-label").textContent = translations[lang].phoneLabel;
+
+    // Update form placeholders
+    document.querySelector("#firstName-input").setAttribute("placeholder", translations[lang].firstNamePlaceholder);
+    document.querySelector("#lastName-input").setAttribute("placeholder", translations[lang].lastNamePlaceholder);
+    document.querySelector("#email-input").setAttribute("placeholder", translations[lang].emailPlaceholder);
+    document.querySelector("#password-input").setAttribute("placeholder", translations[lang].passwordPlaceholder);
+    document.querySelector("#dob-input").setAttribute("placeholder", translations[lang].dobPlaceholder);
+    document.querySelector("#phone-input").setAttribute("placeholder", translations[lang].phonePlaceholder);
+
+    // Update button and link text
+    document.querySelector("button[onclick='confirmDelete()']").textContent = translations[lang].deleteUser;
+    document.querySelector(".logout-link").textContent = translations[lang].logout;
+    document.querySelector("button[onclick='enableInput()'] span").textContent = translations[lang].modify;
+    document.querySelector("button[onclick='editSelf()']").textContent = translations[lang].save;
+
+    // Update error modal
+    document.querySelector("#error-message").textContent = translations[lang].errorMessage;
+}
+
+// Language switcher logic
+document.querySelector("#switch-lang").addEventListener("click", () => {
+    const flagImage = document.querySelector("#flag-image");
+    const currentLang = flagImage.getAttribute("src").includes("it") ? "it" : "en";
+    const newLang = currentLang === "it" ? "en" : "it";
+
+    // Toggle flag image
+    flagImage.setAttribute("src", newLang === "it" ? "media/it.png" : "media/uk.png");
+
+    // Apply the translations
+    switchLanguage(newLang);
+});
+>>>>>>> Stashed changes
 // function renderDecks() {
 //     const tableBody = document.querySelector('#deck-list tbody');
 //
@@ -210,10 +320,17 @@ document.addEventListener("DOMContentLoaded", function() {
 //         switchLanguage(language);
 //     });
 // });
+<<<<<<< Updated upstream
 });
 
 // Funzione di cambio lingua (flag switcher)
 const languageSwitch = document.querySelectorAll("#language-switch button");
+=======
+//});
+
+// Funzione di cambio lingua (flag switcher)
+/*const languageSwitch = document.querySelectorAll("#language-switch button");
+>>>>>>> Stashed changes
 if (languageSwitch.length > 0) {
     languageSwitch.forEach((button) => {
         button.addEventListener("click", () => {
@@ -228,7 +345,11 @@ if (languageSwitch.length > 0) {
         });
     });
 }
+<<<<<<< Updated upstream
 
+=======
+*/
+>>>>>>> Stashed changes
 
 // Funzione per abilitare l'input
 function enableInput() {
