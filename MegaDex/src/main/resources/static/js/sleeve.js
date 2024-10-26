@@ -15,10 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 placeholder: "Cerca una carta",
                 button: "Cerca"
             },
-<<<<<<< Updated upstream
-            sortBy: "Ordina per:",
-            filters: "Filtri:",
-=======
 			sortBy: "Ordina per:",
 			filters: "Filters:",
 			poss: "Possedute:",
@@ -26,7 +22,6 @@ document.addEventListener("DOMContentLoaded", function () {
 			subtype:"Sottotipo:",
 			supertype:"Supertipo:",
 			expansion:"Espansione:",
->>>>>>> Stashed changes
             filterOptions: {
                 default: "Seleziona un filtro",
                 typology: "Tipologia carta",
@@ -65,25 +60,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 sleeve: "BINDER",
                 personalArea: "MY ACCOUNT"
             },
-<<<<<<< Updated upstream
-            buildDeck: "Build your deck",
-=======
             buildDeck: "Binder",
->>>>>>> Stashed changes
             search: {
                 placeholder: "Search for a card",
                 button: "Search"
             },
             sortBy: "Sort by:",
             filters: "Filters:",
-<<<<<<< Updated upstream
-=======
 			poss: "Owned:",
 			typeBy: "Type:",
 			subtype:"Subtype:",
 			supertype:"Supertype:",
 			expansion:"Expansion:",
->>>>>>> Stashed changes
             filterOptions: {
                 default: "Select a filter",
                 typology: "Card typology",
@@ -133,14 +121,11 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector('#search-form1 input').placeholder = translation.search.placeholder;
         document.querySelector('#search-form1 button').textContent = translation.search.button;
         document.querySelector('label[for="sort-menu"]').textContent = translation.sortBy;
-<<<<<<< Updated upstream
-=======
 		document.querySelector('label[for="filter-type"]').textContent = translation.typeBy;
 		document.querySelector('label[for="filter-sleeve"]').textContent = translation.poss;
 		document.querySelector('label[for="filter-subtype"]').textContent = translation.subtype;
 		document.querySelector('label[for="filter-supertype"]').textContent = translation.supertype;
 		document.querySelector('label[for="filter-release"]').textContent = translation.expansion;
->>>>>>> Stashed changes
         document.querySelector('label[for="filter-menu"]').textContent = translation.filters;
         document.querySelector('.selected-cards h2').textContent = translation.selectedCards;
 

@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+/*
 document.addEventListener("DOMContentLoaded", function() {
     setPlaceholders();
     const translations = {
@@ -45,8 +45,8 @@ document.addEventListener("DOMContentLoaded", function() {
             deleteDeckButton: "Delete",
         }
     };
+*/
 
-=======
 setPlaceholders();
 const translations = {
     en: {
@@ -154,7 +154,6 @@ document.querySelector("#switch-lang").addEventListener("click", () => {
     // Apply the translations
     switchLanguage(newLang);
 });
->>>>>>> Stashed changes
 // function renderDecks() {
 //     const tableBody = document.querySelector('#deck-list tbody');
 //
@@ -320,17 +319,15 @@ document.querySelector("#switch-lang").addEventListener("click", () => {
 //         switchLanguage(language);
 //     });
 // });
-<<<<<<< Updated upstream
-});
+//});
 
 // Funzione di cambio lingua (flag switcher)
 const languageSwitch = document.querySelectorAll("#language-switch button");
-=======
+
 //});
 
 // Funzione di cambio lingua (flag switcher)
 /*const languageSwitch = document.querySelectorAll("#language-switch button");
->>>>>>> Stashed changes
 if (languageSwitch.length > 0) {
     languageSwitch.forEach((button) => {
         button.addEventListener("click", () => {
@@ -345,11 +342,9 @@ if (languageSwitch.length > 0) {
         });
     });
 }
-<<<<<<< Updated upstream
 
-=======
 */
->>>>>>> Stashed changes
+
 
 // Funzione per abilitare l'input
 function enableInput() {
