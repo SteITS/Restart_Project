@@ -458,8 +458,7 @@ dl li {
     font-size: 20px;
     float: right;
     cursor: pointer;
-<<<<<<< Updated upstream
-=======
+
 }
 
 .logout-link {
@@ -478,5 +477,5 @@ dl li {
 }
 .logout-link:hover {
     color: darkred; /* Darken the color on hover for effect */
->>>>>>> Stashed changes
+
 }
