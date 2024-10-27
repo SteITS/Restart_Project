@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="JpaBuddyIdeaProjectConfig">
-    <option name="defaultUnitInitialized" value="true" />
-    <option name="renamerInitialized" value="true" />
-    <option name="reverseEngineeringLastDbConnectionId" value="15bc7d7f-43cc-4c03-8041-4dbeed5973fd__pokemon_db_dbo" />
-    <option name="reLastEntityCreationPackage" value="MegaDex/src/main/java/com/restart/entity" />
-  </component>
-</project>
