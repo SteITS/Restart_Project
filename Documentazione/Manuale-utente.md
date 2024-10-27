@@ -1,6 +1,6 @@
 ## Indice
 1. [Introduzione](#megadex)
-    * Obbiettivo del Documento        
+    * [Obiettivo del Documento](#obbiettivo-del-documento) 
 2. [Requisiti Minimi per l'utilizzo dell'Applicazione](#requisiti-minimi-per-lutilizzo-dellapplicazione)
 3. [Informazioni comuni a tutte le pagine](#informazioni-comuni-a-tutte-le-pagine)
 4. [Home Page](#home-page)
@@ -30,8 +30,8 @@ Il documento descrive le funzionalità dell'applicazione web MegaDex, finalizzat
 # Informazioni comuni a tutte le pagine
 Nell'angolo in alto a destra della pagina è presente un simbolo rotondo cliccabile che mostra la bandiera italiana o inglese, rispettivamente alla lingua selezionata.
 
-![Bandiera-Italiana](/Documentazione/img_manuale_utente/bandiera-italiana.png)
-![Bandiera-Inglese](/Documentazione/img_manuale_utente/bandiera-inglese.png) 
+![Bandiera-Italiana](./img_manuale_utente/bandiera-italiana.png)
+![Bandiera-Inglese](./img_manuale_utente/bandiera-inglese.png) 
 
 Nella sezione in alto al centro-destra sono presenti i link a tutte le pagine accessibili sull'applicazione:
 
@@ -41,7 +41,7 @@ Nella sezione in alto al centro-destra sono presenti i link a tutte le pagine ac
 - Collezione: pagina dedicata alla collezione personale
 - Area Personale: pagina dedicata al login, o gestione dei propri dati se il login è già stato eseguito
 
-![Link-Pagine](/Documentazione/img_manuale_utente/link.png)
+![Link-Pagine](./img_manuale_utente/link.png)
 
 Per effettuare il login o la registrazione se è il primo accesso, bisogna cliccare sull'area personale oppure si verrà reindirizzati automaticamente alla pagina di login, se si prova ad aprire una qualunque delle altre pagine a cui l'accesso è limitato agli utenti già registrati e che hanno effettuato il login.
 
@@ -51,18 +51,18 @@ La Home page è la pagina iniziale in cui si attera aprendo l'applicazione, in c
 
 <span style="color:red">Importante:</span> questa è anche l'unica pagina consultabile senza login (previa registrazione).
 
-![Home Page](/Documentazione/img_manuale_utente/home.png)
+![Home Page](./img_manuale_utente/home.png)
 
 # Login
 Nella pagina di login è possibile accedere tramite l'email usata per registrarsi, e la password associata, dopo di che si può accedere a tutte le altre aree dell'applicazione.
 
 Se non ci si è prima registrati non si può eseguire l'accesso, per registrarsi basta cliccare sulla scritta **"Registrati qui"**
 
-![Login-Page](/Documentazione/img_manuale_utente/login.png)
+![Login-Page](./img_manuale_utente/login.png)
 
 Nel caso in cui non ci si sia ancora registrati o le credenziali inserite siano errate compare la seguente schermata:
 
-![Login-Errato](/Documentazione/img_manuale_utente/login-errato.png)
+![Login-Errato](./img_manuale_utente/login-errato.png)
 
 # Registrazione
 
@@ -80,11 +80,11 @@ Per registrarsi è necessario inserire i seguenti campi:
 
 Per terminare la registrazione cliccare su registrati, se i dati inseriti sono corretti e l'email non è già stata registrata, verrà visualizzata la seguente schermata:
 
-![Registrazione-effettuata](/Documentazione/img_manuale_utente/registrazione-effettuata.png)
+![Registrazione-effettuata](./img_manuale_utente/registrazione-effettuata.png)
 
 Nel caso in cui per esempio la password sia sbagliata verra mostrata la seguente schermata, oppure un error diverso se il dato sbagliato sia un altro:
 
-![alt text](/Documentazione/img_manuale_utente/reg-pass-errata.png)
+![alt text](./img_manuale_utente/reg-pass-errata.png)
 
 Dopo la registrazione sarà possibile eseguire il login tramite email e password.
 
@@ -99,7 +99,7 @@ Al di sotto dei dati personali ci sono 4 pulsanti cliccabili che permettono risp
 - Salva: salvare i dati modificati
 
 Nel fondo della schermata cè la sezione dedicata ai mazzi personali creati, che nel caso della foto sottostante sarà vuota se non sono ancora stati creati dei mazzi.
-![Area Personale](/Documentazione/img_manuale_utente/area-personale.png)
+![Area Personale](./img_manuale_utente/area-personale.png)
 
 # Collezione privata
 
@@ -107,11 +107,11 @@ Nella sezione collezione privata è possibile visualizzare tutte le carte esiste
 
 Sulla destra della schermata è possibile vedere i dettagli della carta selezionata, e se si vuole aggiungerla o rimuoverla dalla propria collezione tramite i simboli -/+, in caso la carta sia già presente nella collezione questi aumenteranno o diminuiranno il numero di copie possedute di tale carta.
 
-![Collezione Privata](/Documentazione/img_manuale_utente/collezione.png)
+![Collezione Privata](./img_manuale_utente/collezione.png)
 
 Scorrendo verso il fondo della pagina sarà possibile visualizzare più carte, più dettagli della carta selezionata, e tramite le freccie a destra e sinistra sul fondo, scorrere altre pagine della collezione di carte.
 
-![Dettagli-collezione](/Documentazione/img_manuale_utente/dettagli-collezione.png)
+![Dettagli-collezione](./img_manuale_utente/dettagli-collezione.png)
 
 
 # Deckbuilder
@@ -122,7 +122,7 @@ All'interno di deck builder si vedono al centro tutte le carte esistenti, con ri
 
 Nella sezione a destra si visualizzano le carte inserite nel mazzo, rimuovibili tramite la X sul bordo destro, e il pulsante per salvare il mazzo
 
-![Deckbuilder](/Documentazione/img_manuale_utente/deckbuilder.jpeg)
+![Deckbuilder](./img_manuale_utente/deckbuilder.jpeg)
 
 
 
@@ -141,7 +141,7 @@ E sono possibili le seguenti interazioni:
 - Mi piace: mettere una valutazione positiva al deck in questione
 - Non mi piace: mettere una valutazione negativa al deck in questione
 
-![Community](/Documentazione/img_manuale_utente/community.jpeg)
+![Community](./img_manuale_utente/community.jpeg)
 
 Se invece si seleziona un singolo mazzo si visualizza la seguente schermata, in cui vengono mostrate tutte le carte che compongono il mazzo.
 
@@ -151,7 +151,7 @@ Delle carte vengono visualizzati le seguenti informazioni:
 - Quantita della carta all'interno del mazzo
 - Rarità della carta
 
-![Community deck selezionato](/Documentazione/img_manuale_utente/community-deck-selezionato.jpeg)
+![Community deck selezionato](./img_manuale_utente/community-deck-selezionato.jpeg)
 
 
 
