@@ -53,3 +53,5 @@ MegaDex è un applicativo WEB APP per la gestione di Pokémon TGC. L'applicativo
 <b> Per più informazioni sul setup e struttura del Database -> </b> [Database](./Documentazione/Database.md)
 
 <b> Per più informazioni sull'API -> </b> [API](./Documentazione/API.md)
+
+<b> Per più informazioni sull'applicazione web </b> [Manuale-utente](./Documentazione/Manuale-utente.md)

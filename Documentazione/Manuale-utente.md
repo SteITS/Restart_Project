@@ -9,6 +9,7 @@
 7. [Area Personale](#area-personale)
 8. [Collezione Privata](#collezione-privata)
 9. [Deckbuilder](#deckbuilder)
+    * [Regole per la costruzione del mazzo](#regole-per-la-costruzione-del-mazzo)
 10. [Community](#community)
 
 
@@ -124,7 +125,11 @@ Nella sezione a destra si visualizzano le carte inserite nel mazzo, rimuovibili 
 
 ![Deckbuilder](./img_manuale_utente/deckbuilder.jpeg)
 
-
+## Regole per la costruzione del mazzo:
+- Il mazzo deve avere precisamente 60 carte
+- Possono essere presenti al massimo 4 copie per carta (ad esclusione delle energie)
+- Non devono essere presenti carte bannate nel formato di deck che si vuole costruire
+- Devono essere rispettate le regolazioni specifiche per ogni carta
 
 # Community
 
@@ -143,7 +148,7 @@ E sono possibili le seguenti interazioni:
 
 ![Community](./img_manuale_utente/community.jpeg)
 
-Se invece si seleziona un singolo mazzo si visualizza la seguente schermata, in cui vengono mostrate tutte le carte che compongono il mazzo.
+Se invece si seleziona un singolo mazzo si visualizza la schermata soprastante, in cui vengono mostrate tutte le carte che compongono il mazzo.
 
 Delle carte vengono visualizzati le seguenti informazioni:
 - Nome della carta
@@ -151,7 +156,6 @@ Delle carte vengono visualizzati le seguenti informazioni:
 - Quantita della carta all'interno del mazzo
 - Rarità della carta
 
-![Community deck selezionato](./img_manuale_utente/community-deck-selezionato.jpeg)
 
 
 
