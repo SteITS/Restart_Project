@@ -1,103 +1,141 @@
 <!DOCTYPE html>
-<html lang="it" >
+<html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MegaDex</title>
-  <link rel="stylesheet" type="text/css" href="css/deckbuilder.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MegaDex</title>
+    <link rel="stylesheet" type="text/css" href="./css/deckbuilder.css">
 </head>
 <body>
-<header>
-  <img src="/media/MegaDex-17-09-2024.png" alt="PokemonDB Logo" class="logo">
-  <nav>
-    <ul>
-      <li><a href="/index.html">HOME</a></li>
-      <li><a href="/deckbuilder.html" class="active">DECKBUILDER</a></li>
-      <li><a href="/community.html">COMMUNITY</a></li>
-      <li><a href="/sleeve.html">COLLEZIONE</a></li>
-      <li><a href="/login.html" >AREA PERSONALE</a></li>
-      <li>
-        <div id="language-switch">
-          <button id="switch-lang">
-            <img id="flag-image" src="@{/media/it.png}" alt="Language Flag" class="flag">
-          </button>
-        </div>
-      </li>
-    </ul>
-  </nav>
-</header>
+    <header>
+        <img src="media/MegaDex-17-09-2024.png" alt="PokemonDB Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="deckbuilder.html" class="active">DECKBUILDER</a></li>
+                <li><a href="community.html">COMMUNITY</a></li>
+                <li><a href="login.html" >AREA PERSONALE</a></li>
 
-<main>
-  <section id="deckbuilder">
-    <h1>Costruisci il tuo mazzo</h1>
-    <form id="search-form1" action="search" method="get">
-      <div class="input-button-container">
-        <input type="text" name="card-search" placeholder="Cerca una carta" required>
-        <button type="submit">Cerca</button>
-      </div>
-    </form>
-
-    <dl>
-      <li>
-        <div class="menu-container">
-          <label for="sort-menu">Ordina per:</label>
-          <select id="sort-menu" >
-            <option value="">Seleziona un'opzione</option>
-            <option value="'name'">Per nome</option>
-            <option value="'text'">Per testo</option>
-            <option value="'typology'">Per tipologia</option>
-            <option value="'type'">Per tipo</option>
-            <option value="'evolution'">Per evoluzione</option>
-          </select>
-        </div>
-      </li>
-      <li>
-        <div class="menu-container">
-          <label for="filter-menu">Filtri:</label>
-          <select id="filter-menu" >
-            <option value="">Seleziona un filtro</option>
-            <option value="'card-typology'">Tipologia carta</option>
-            <option value="'subtype'">Sottotipo carta</option>
-            <option value="'format'">Formato</option>
-            <option value="'card-type'">Tipo carta</option>
-            <option value="'edition'">Edizione</option>
-            <option value="'pokemon'">Pokémon</option>
-            <option value="'release-date'">Data rilascio</option>
-          </select>
-        </div>
-      </li>
-    </dl>
-
-    <div class="card-list">
-      <!-- Carte visualizzate dinamicamente -->
-      <div each="card : ${cards}" class="card">
-        <img src="${card.imageUrl}" alt="${card.name}">
-        <p text="${card.name}">Nome Carta</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="sidebar">
-    <div class="selected-cards">
-      <h2>Carte Selezionate</h2>
-      <ul id="selected-card-list">
-        <li each="selectedCard : ${selectedCards}">
-          <p text="${selectedCard.name}">Nome carta selezionata</p>
-        </li>
-      </ul>
-    </div>
-
-    <button class="button-deck" type="submit" onclick="'saveDeck()'">Salva</button>
-    <button class="button-deck" type="submit" onclick="'exportDeck()'">Esporta</button>
-
-    <form id="search-form2" action="@{/import}" method="post">
-      <h2>Importa mazzo</h2>
-      <input type="text" name="deck-link" placeholder="Inserisci link" required>
-    </form>
-    <button class="button-deck" type="submit">Importa</button>
-  </section>
-</main>
-
-<script src="js/deckbuilder.js" defer></script>
+                <li>
+                    <div id="language-switch">
+                        <button id="switch-lang">
+                            <img id="flag-image" src="media/it.png" alt="Language Flag" class="flag">
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="deckbuilder">
+            <h1>Costruisci il tuo mazzo</h1>
+            <form id="search-form1">
+                <div class="input-button-container">
+                    <input type="text" name="card-search" placeholder="Cerca una carta" required>
+                    <button type="submit">Cerca</button>
+                </div>
+            </form>
+                <dl>
+                    <li>
+                        <div class="menu-container">
+                            <label for="sort-menu">Ordina per:</label>
+                            <select id="sort-menu">
+                                <option value="">Seleziona un'opzione</option>
+                                <option value="name">Per nome</option>
+                                <option value="text">Per testo</option>
+                                <option value="typology">Per tipologia</option>
+                                <option value="type">Per tipo</option>
+                                <option value="evolution">Per evoluzione</option>
+                            </select>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="menu-container">
+                            <label for="filter-menu">Filtri:</label>
+                            <select id="filter-menu">
+                                <option value="">Seleziona un filtro</option>
+                                <option value="card-typology">Tipologia carta</option>
+                                <option value="subtype">Sottotipo carta</option>
+                                <option value="format">Formato</option>
+                                <option value="card-type">Tipo carta</option>
+                                <option value="edition">Edizione</option>
+                                <option value="pokemon">Pokémon</option>
+                                <option value="release-date">Data rilascio</option>
+                            </select>
+                        </div>
+                    </li>
+                </dl>
+                
+                <div class="card-list">
+                    <!-- Le carte verranno caricate qui -->
+                    <div class="card">
+                        <img src="https://images.pokemoncard.io/images/base1/base1-1.png" alt="Carta 1">
+                        <p>Alakazam</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.pokemoncard.io/images/base1/base1-2.png" alt="Carta 2">
+                        <p>Blastoise</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.pokemoncard.io/images/base1/base1-3.png" alt="Carta 3">
+                        <p>Chansey</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.pokemoncard.io/images/base1/base1-4.png" alt="Carta 4">
+                        <p>Charizard</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.pokemoncard.io/images/base1/base1-5.png" alt="Carta 5">
+                        <p>Clefairy</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.pokemoncard.io/images/base1/base1-6.png" alt="Carta 6">
+                        <p>Gyarados</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.pokemoncard.io/images/base1/base1-7.png" alt="Carta 7">
+                        <p>Hitmonchan</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.pokemoncard.io/images/base1/base1-8.png" alt="Carta 8">
+                        <p>Machamp</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.pokemoncard.io/images/base1/base1-9.png" alt="Carta 9">
+                        <p>Magneton</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.pokemoncard.io/images/base1/base1-10.png" alt="Carta 10">
+                        <p>Mewtwo</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.pokemoncard.io/images/base1/base1-11.png" alt="Carta 11">
+                        <p>Nidoking</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://images.pokemoncard.io/images/base1/base1-12.png" alt="Carta 12">
+                        <p>Ninetales</p>
+                    </div>
+                </div>                
+            </section>
+            <section class="sidebar">
+                <div class="selected-cards">
+                    <h2>Carte Selezionate</h2>
+                    <ul id="selected-card-list">
+                        <!-- Elenco delle carte selezionate -->
+                    </ul>
+                </div>
+            
+                <button class="button-deck" type="submit">Salva</button>
+                <button class="button-deck" type="submit">Esporta</button>
+                <form id="search-form2">
+                    <h2>Importa mazzo</h2>
+                    <input type="text" name="card-search" placeholder="Inserisci link" required>
+                </form>
+                <button class="button-deck" type="submit">Importa</button>
+            </section>
+        </section>
+    </main>
+    <script src="js/deckbuilder.js" defer></script>
 </body>
 </html>

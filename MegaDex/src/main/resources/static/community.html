@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MegaDex</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+</head>
+<body>
+    <header>
+        <img src="media/MegaDex-17-09-2024.png" alt="PokemonDB Logo" class="logo">
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="deckbuilder.html">DECKBUILDER</a></li>
+                <li><a href="community.html" class="active">COMMUNITY</a></li>
+                <li><a href="login.html">AREA PERSONALE</a></li>
+                <li>
+                    <div id="language-switch">
+                        <button id="switch-lang">
+                            <img id="flag-image" src="media/it.png" alt="Language Flag" class="flag">
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <h1>Cerca un mazzo o un autore</h1>
+            <form id="search-form">
+                <input type="text" name="find" placeholder="Cerca un mazzo o un autore" required>
+                <button type="submit">Cerca</button>
+            </form>
+        </section>
+        <section id="deck-list">
+            <h1>Mazzi della community</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome Mazzo</th>
+                        <th>Tipi</th>
+                        <th>Autore</th>
+                        <th>Azioni</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-deck="Dragofiamma" class="deck-row">
+                        <td>Dragofiamma</td>
+                        <td>Fuoco, Drago</td>
+                        <td>FireLord99</td>
+                        <td class="button-group">
+                            <button class="comm-btn" onclick="likeDeck('Dragofiamma')"><i class="bi bi-hand-thumbs-up-fill"></i><span> Mi Piace</span></button>
+                            <button class="comm-btn" onclick="downloadDeck('Dragofiamma')"><i class="bi bi-download"></i><span> Scarica</span></button>
+                            <button class="comm-btn" onclick="saveDeck('Dragofiamma')"><i class="bi bi-cloud-upload-fill"></i><span> Salva</span></button>
+                        </td>
+                    </tr>
+                    <tr data-deck="details-Dragofiamma" class="details-row" style="display: none;">
+                        <td colspan="3">
+                            <div class="card-container-js" id="details-Dragofiamma">
+                                <!-- Aggiungi altre carte come necessario -->
+                            </div>
+                        </td>
+                    </tr>
+                    <tr data-deck="AquaForce" class="deck-row">
+                        <td>AquaForce</td>
+                        <td>Acqua, Ghiaccio</td>
+                        <td>WaterWiz87</td>
+                        <td class="button-group">
+                            <button class="comm-btn" onclick="likeDeck('AquaForce')"><i class="bi bi-hand-thumbs-up-fill"></i><span> Mi Piace</span></button>
+                            <button class="comm-btn" onclick="downloadDeck('AquaForce')"><i class="bi bi-download"></i><span> Scarica</span></button>
+                            <button class="comm-btn" onclick="saveDeck('AquaForce')"><i class="bi bi-cloud-upload-fill"></i><span> Salva</span></button>
+                        </td>
+                    </tr>
+                    <tr data-deck="details-AquaForce" class="details-row" style="display: none;">
+                        <td colspan="3">
+                            <div class="card-container-js" id="details-AquaForce">
+                                <!-- Le carte verranno aggiunte dinamicamente qui -->
+                            </div>
+                        </td>
+                    </tr>
+                    <tr data-deck="Shockwave" class="deck-row">
+                        <td>Shockwave</td>
+                        <td>Elettro</td>
+                        <td>ThunderStrikeX</td>
+                        <td class="button-group">
+                            <button class="comm-btn" onclick="likeDeck('Shockwave')"><i class="bi bi-hand-thumbs-up-fill"></i><span> Mi Piace</span></button>
+                            <button class="comm-btn" onclick="downloadDeck('Shockwave')"><i class="bi bi-download"></i><span> Scarica</span></button>
+                            <button class="comm-btn" onclick="saveDeck('Shockwave')"><i class="bi bi-cloud-upload-fill"></i><span> Salva</span></button>
+                        </td>
+                    </tr>
+                    <tr data-deck="details-Shockwave" class="details-row" style="display: none;">
+                        <td colspan="3">
+                            <div class="card-container-js" id="details-Shockwave">
+                                <!-- Le carte verranno aggiunte dinamicamente qui -->
+                            </div>
+                        </td>
+                    </tr>
+                    <tr data-deck="Terremoto" class="deck-row">
+                        <td>Terremoto</td>
+                        <td>Terra, Roccia</td>
+                        <td>StoneCrusher21</td>
+                        <td class="button-group">
+                            <button class="comm-btn" onclick="likeDeck('Terremoto')"><i class="bi bi-hand-thumbs-up-fill"></i><span> Mi Piace</span></button>
+                            <button class="comm-btn" onclick="downloadDeck('Terremoto')"><i class="bi bi-download"></i><span> Scarica</span></button>
+                            <button class="comm-btn" onclick="saveDeck('Terremoto')"><i class="bi bi-cloud-upload-fill"></i><span> Salva</span></button>
+                        </td>
+                    </tr>
+                    <tr data-deck="details-Terremoto" class="details-row" style="display: none;">
+                        <td colspan="3">
+                            <div class="card-container-js" id="details-Terremoto">
+                                <!-- Le carte verranno aggiunte dinamicamente qui -->
+                            </div>
+                        </td>
+                    </tr>
+                    <tr data-deck="Velenospina" class="deck-row">
+                        <td>Velenospina</td>
+                        <td>Veleno, Erba</td>
+                        <td>ToxicQueen23</td>
+                        <td class="button-group">
+                            <button class="comm-btn" onclick="likeDeck('Velenospina')"><i class="bi bi-hand-thumbs-up-fill"></i><span> Mi Piace</span></button>
+                            <button class="comm-btn" onclick="downloadDeck('Velenospina')"><i class="bi bi-download"></i><span> Scarica</span></button>
+                            <button class="comm-btn" onclick="saveDeck('Velenospina')"><i class="bi bi-cloud-upload-fill"></i><span> Salva</span></button>
+                        </td>
+                    </tr>
+                    <tr data-deck="details-Velenospina" class="details-row" style="display: none;">
+                        <td colspan="3">
+                            <div class="card-container-js" id="details-Velenospina">
+                                <!-- Le carte verranno aggiunte dinamicamente qui -->
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>                
+            </table>                    
+        </section>
+    </main>
+    <script src="js/community.js" defer></script>
+</body>
+</html>

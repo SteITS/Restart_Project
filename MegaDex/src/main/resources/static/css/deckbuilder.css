@@ -200,7 +200,7 @@ input[type="checkbox"] {
     margin-right: 10px;
 }
 
-#search, #matchups, #login-section, #home, #sleeves, #aside-top, #aside-bottom, .sidebar {
+#search, #matchups, #login-section, #home, #deckbuilder, #aside-top, #aside-bottom, .sidebar {
     animation: fadeIn 1s ease-in;
 }
 #search {
@@ -241,7 +241,7 @@ input[type="checkbox"] {
     }
 }
 
-#sleeves h1 {
+#deckbuilder h1 {
     color: #333;
     margin-bottom: 20px;
 }
@@ -316,7 +316,7 @@ input[type="checkbox"] {
     height: auto;
 }
 
-#sleeves {
+#deckbuilder {
     width: 60%;
     position: absolute;
     background: rgba(255, 255, 255, 0.9);
@@ -496,6 +496,7 @@ input[type="checkbox"] {
 
 dl {
     list-style-type: none;
+    justify-content: center;
     display: flex;
 }
 
