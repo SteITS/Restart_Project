@@ -28,7 +28,7 @@ public class RatingController {
     }
 
     //Recupera tutti i rating
-    @PostMapping("/deb/ratings")
+    @GetMapping("/deb/ratings")
     public List<Rating> getAllRatings() {
         return ratingService.getAllRatings();
     }
