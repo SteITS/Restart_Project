@@ -40,6 +40,11 @@ MegaDex è un applicativo WEB APP per la gestione di Pokémon TGC. L'applicativo
 3. Configura l'applicazione:<br>
     In `SWD23-25.Restart_Project\MegaDex\src\main\resources` modifica `application.properties` con le impostazioni utilizzate in sviluppo o con le credenziali di login del tuo user SQL
 
+`Puoi anche runnare l'applicativo così (devi sempre avere il db pronto)`:
+```
+/SWD23-25.Restart_Project/
+$ java -jar MegaDex-0.0.1-SNAPSHOT.jar
+```
 
 `Impostazioni utilizzate in sviluppo`:
 ```Java
@@ -49,6 +54,7 @@ MegaDex è un applicativo WEB APP per la gestione di Pokémon TGC. L'applicativo
         spring.datasource.username=MegaDex
         spring.datasource.password=password1.
 ```
+
 
 <b> Per più informazioni sul setup e struttura del Database -> </b> [Database](./Documentazione/Database.md)
 
