@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-
+searchCards();
     // Oggetto per le traduzioni
     const translations = {
         it: {
@@ -7,10 +7,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 home: "HOME",
                 deckbuilder: "DECKBUILDER",
                 community: "COMMUNITY",
-                sleeve: "RACCOGLITORE",
+                sleeve: "COLLEZIONE",
                 personalArea: "AREA PERSONALE"
             },
-            buildDeck: "Raccoglitore",
+            buildDeck: "Collezione",
             search: {
                 placeholder: "Cerca una carta",
                 button: "Cerca"

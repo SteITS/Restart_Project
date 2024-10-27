@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+	searchCards();
     const cardContainers = document.querySelectorAll('.card-container');
     const deckName = document.getElementById('deck-name');
     const deckCreator = document.getElementById('deck-creator');
@@ -38,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
             deckbuilderLink: "DECKBUILDER",
             communityLink: "COMMUNITY",
             loginLink: "AREA PERSONALE",
-			collectionLink: "RACCOGLITORE",
+			collectionLink: "COLLEZIONE",
             footerTitle: "Multinazionalona SPA",
             footerAddress: "Via Esempio 123, 00100 Roma, Italia",
             footerPhone: "+39 012 3456789",

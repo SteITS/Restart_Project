@@ -133,8 +133,7 @@ function renderDecks() {
             <td>${deck.author}</td>
             <td class="button-group">
                 <button class="comm-btn" onclick="likeDeck('${deck.name}')"><i class="bi bi-hand-thumbs-up-fill"></i><span> Mi Piace</span></button>
-                <button class="comm-btn" onclick="downloadDeck('${deck.name}')"><i class="bi bi-download"></i><span> Scarica</span></button>
-                <button class="comm-btn" onclick="saveDeck('${deck.name}')"><i class="bi bi-cloud-upload-fill"></i><span> Salva</span></button>
+                <button class="comm-btn" onclick="downloadDeck('${deck.name}')"><i class="bi bi-hand-thumbs-down-fill"></i><span> Non Mi Piace</span></button>
             </td>
         `;
         
@@ -190,11 +189,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 author: "Autore",
                 actions: "Azioni"
             },
-            actionButtons: ["Mi Piace", "Scarica", "Salva"],
-            homeLink: "HOME",
-            deckbuilderLink: "DECKBUILDER",
-            communityLink: "COMMUNITY",
-            loginLink: "AREA PERSONALE"
+            actionButtons: ["Mi Piace", "Non Mi Piace"],
+            home: "HOME",
+                deckbuilder: "DECKBUILDER",
+                community: "COMMUNITY",
+                collezione: "COLLEZIONE",
+                personalArea: "AREA PERSONALE"
         },
         en: {
             searchTitle: "Search for a deck or author",
@@ -207,11 +207,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 author: "Author",
                 actions: "Actions"
             },
-            actionButtons: ["Like", "Download", "Save"],
-            homeLink: "HOME",
-            deckbuilderLink: "DECKBUILDER",
-            communityLink: "COMMUNITY",
-            loginLink: "MY ACCOUNT"
+            actionButtons: ["Like", "Dislike"],
+            home: "HOME",
+                deckbuilder: "DECKBUILDER",
+                community: "COMMUNITY",
+                collezione: "BINDER",
+                personalArea: "MY ACCOUNT"
         }
     };
 
@@ -225,11 +226,7 @@ document.addEventListener("DOMContentLoaded", function() {
             types: document.querySelector('thead th:nth-child(2)'),
             author: document.querySelector('thead th:nth-child(3)'),
             actions: document.querySelector('thead th:nth-child(4)')
-        },
-        homeLink: document.querySelector('nav ul li:nth-child(1) a'),
-        deckbuilderLink: document.querySelector('nav ul li:nth-child(2) a'),
-        communityLink: document.querySelector('nav ul li:nth-child(3) a'),
-        loginLink: document.querySelector('nav ul li:nth-child(4) a')
+        }
     };
 
     // Funzione per aggiornare la lingua della pagina
@@ -258,10 +255,11 @@ document.addEventListener("DOMContentLoaded", function() {
             });
         });
 
-        elementsToTranslate.homeLink.textContent = translation.homeLink;
-        elementsToTranslate.deckbuilderLink.textContent = translation.deckbuilderLink;
-        elementsToTranslate.communityLink.textContent = translation.communityLink;
-        elementsToTranslate.loginLink.textContent = translation.loginLink;
+        document.querySelector('nav ul li:nth-child(1) a').textContent = translation.home;
+        document.querySelector('nav ul li:nth-child(2) a').textContent = translation.deckbuilder;
+        document.querySelector('nav ul li:nth-child(3) a').textContent = translation.community;
+        document.querySelector('nav ul li:nth-child(4) a').textContent = translation.collezione;
+        document.querySelector('nav ul li:nth-child(5) a').textContent = translation.personalArea;
     }
 
     // Aggiungi gli event listener per i pulsanti delle bandiere

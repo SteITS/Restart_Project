@@ -40,7 +40,7 @@ public class SpringSecurity {
                                 .requestMatchers("/media/**").permitAll()
                                 .requestMatchers("/js/**").permitAll()
                                 .requestMatchers("/index.html").permitAll()
-                                .requestMatchers("/community.html").permitAll()
+                                .requestMatchers("/community.html").hasAnyRole("ADMIN", "USER")
                                 .requestMatchers("/sleeve.html").hasAnyRole("ADMIN", "USER")
                                 .requestMatchers("/personal.html").hasAnyRole("ADMIN", "USER")
                                 .requestMatchers("/deckbuilder.html").hasAnyRole("ADMIN", "USER")

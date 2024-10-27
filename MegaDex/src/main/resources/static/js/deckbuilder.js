@@ -82,6 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 home: "HOME",
                 deckbuilder: "DECKBUILDER",
                 community: "COMMUNITY",
+                collezione: "COLLEZIONE",
                 personalArea: "AREA PERSONALE"
             },
             buildDeck: "Costruisci il tuo mazzo",
@@ -126,6 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 home: "HOME",
                 deckbuilder: "DECKBUILDER",
                 community: "COMMUNITY",
+                collezione: "BINDER",
                 personalArea: "MY ACCOUNT"
             },
             buildDeck: "Build your deck",
@@ -176,7 +178,8 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector('nav ul li:nth-child(1) a').textContent = translation.header.home;
         document.querySelector('nav ul li:nth-child(2) a').textContent = translation.header.deckbuilder;
         document.querySelector('nav ul li:nth-child(3) a').textContent = translation.header.community;
-        document.querySelector('nav ul li:nth-child(4) a').textContent = translation.header.personalArea;
+        document.querySelector('nav ul li:nth-child(4) a').textContent = translation.header.collezione;
+        document.querySelector('nav ul li:nth-child(5) a').textContent = translation.header.personalArea;
 
         // Cambia i testi delle varie sezioni
         document.querySelector('#deckbuilder h1').textContent = translation.buildDeck;

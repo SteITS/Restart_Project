@@ -213,11 +213,7 @@ input[type="checkbox"] {
     margin-top: 20px;
 }
 
-.card {
-    padding: 10px;
-    width: 200px;
-    text-align: center;
-}
+
 
 .card img {
     width: 100%;
@@ -274,6 +270,10 @@ input[type="checkbox"] {
     width: 100%;
 }
 
+.card p{
+    display: none;
+}
+
 #search-form2 button {
     padding: 9.5px 20px;
     background: #2980b9;
@@ -308,11 +308,13 @@ input[type="checkbox"] {
     border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    width: 180px;
+
+
 }
 
 .card img {
-    max-width: 100%;
+    
+    max-width: 180px;
     height: auto;
 }
 
@@ -340,11 +342,7 @@ input[type="checkbox"] {
     border-radius: 4px; 
 }
 
-.card {
-    display: flex;
-    flex-direction: column; /* Per mantenere l'immagine sopra il testo */
-    align-items: center; /* Centra l'immagine e il testo */
-}
+
 
 .sidebar .card{
     margin-top: 10%;
@@ -443,10 +441,7 @@ input[type="checkbox"] {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumenta l'ombra per un effetto di profondità */
 }
 
-.card img {
-    max-width: 100%;
-    height: auto;
-}
+
 
 /* Carte selezionate */
 .selected-cards {
