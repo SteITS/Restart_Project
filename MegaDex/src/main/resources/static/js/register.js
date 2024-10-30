@@ -51,22 +51,3 @@ document.addEventListener('submit', function() {
     });
 });
 
-// Funzione per mostrare il popup d'errore
-// function showErrorModal(message) {
-//     const modal = document.getElementById("error-modal");
-//     const errorMessage = document.getElementById("error-message");
-//     errorMessage.textContent = message;
-//     modal.style.display = "block";
-//
-//     // Chiudi il modal quando l'utente clicca sulla 'x'
-//     document.querySelector(".close").onclick = function() {
-//         modal.style.display = "none";
-//     };
-//
-//     // Chiudi il modal se l'utente clicca fuori dal popup
-//     window.onclick = function(event) {
-//         if (event.target === modal) {
-//             modal.style.display = "none";
-//         }
-//     };
-// }

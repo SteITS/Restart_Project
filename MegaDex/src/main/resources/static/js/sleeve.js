@@ -1,185 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
 searchCards();
-    // Oggetto per le traduzioni
-    const translations = {
-        it: {
-            header: {
-                home: "HOME",
-                deckbuilder: "DECKBUILDER",
-                community: "COMMUNITY",
-                sleeve: "COLLEZIONE",
-                personalArea: "AREA PERSONALE"
-            },
-            buildDeck: "Collezione",
-            search: {
-                placeholder: "Cerca una carta",
-                button: "Cerca"
-            },
-			sortBy: "Ordina per:",
-			filters: "Filters:",
-			poss: "Possedute:",
-			typeBy: "Tipo:",
-			subtype:"Sottotipo:",
-			supertype:"Supertipo:",
-			expansion:"Espansione:",
-            filterOptions: {
-                default: "Seleziona un filtro",
-                typology: "Tipologia carta",
-                subtype: "Sottotipo carta",
-                format: "Formato",
-                type: "Tipo carta",
-                edition: "Edizione",
-                pokemon: "Pokémon",
-                releaseDate: "Data rilascio"
-            },
-            sortOptions: {
-                default: "Seleziona un'opzione",
-                name: "Per nome",
-                text: "Per testo",
-                typology: "Per tipologia",
-                type: "Per tipo",
-                evolution: "Per evoluzione"
-            },
-            selectedCards: "Carte Selezionate",
-            buttons: {
-                save: "Salva",
-                export: "Esporta",
-                import: "Importa",
-                importDeck: "Importa mazzo"
-            },
-            import: {
-                placeholder: "Inserisci link",
-                button: "Importa"
-            }
-        },
-        en: {
-            header: {
-                home: "HOME",
-                deckbuilder: "DECKBUILDER",
-                community: "COMMUNITY",
-                sleeve: "BINDER",
-                personalArea: "MY ACCOUNT"
-            },
-            buildDeck: "Binder",
-            search: {
-                placeholder: "Search for a card",
-                button: "Search"
-            },
-            sortBy: "Sort by:",
-            filters: "Filters:",
-			poss: "Owned:",
-			typeBy: "Type:",
-			subtype:"Subtype:",
-			supertype:"Supertype:",
-			expansion:"Expansion:",
-            filterOptions: {
-                default: "Select a filter",
-                typology: "Card typology",
-                subtype: "Card subtype",
-                format: "Format",
-                type: "Card type",
-                edition: "Edition",
-                pokemon: "Pokémon",
-                releaseDate: "Release date"
-            },
-            sortOptions: {
-                default: "Select an option",
-                name: "By name",
-                text: "By text",
-                typology: "By typology",
-                type: "By type",
-                evolution: "By evolution"
-            },
-            selectedCards: "Selected Cards",
-            buttons: {
-                save: "Save",
-                export: "Export",
-                import: "Import",
-                importDeck: "Import deck"
-            },
-            import: {
-                placeholder: "Insert link",
-                button: "Import"
-            }
-        }
-    };
-    
-
-    // Funzione per aggiornare la lingua della pagina
-    function switchLanguage(language) {
-        const translation = translations[language];
-
-        // Cambia i testi della navbar
-        document.querySelector('nav ul li:nth-child(1) a').textContent = translation.header.home;
-        document.querySelector('nav ul li:nth-child(2) a').textContent = translation.header.deckbuilder;
-        document.querySelector('nav ul li:nth-child(3) a').textContent = translation.header.community;
-        document.querySelector('nav ul li:nth-child(4) a').textContent = translation.header.sleeve;
-        document.querySelector('nav ul li:nth-child(5) a').textContent = translation.header.personalArea;
-
-        // Cambia i testi delle varie sezioni
-        document.querySelector('#sleeves h1').textContent = translation.buildDeck;
-        document.querySelector('#search-form1 input').placeholder = translation.search.placeholder;
-        document.querySelector('#search-form1 button').textContent = translation.search.button;
-        document.querySelector('label[for="sort-menu"]').textContent = translation.sortBy;
-		document.querySelector('label[for="filter-type"]').textContent = translation.typeBy;
-		document.querySelector('label[for="filter-sleeve"]').textContent = translation.poss;
-		document.querySelector('label[for="filter-subtype"]').textContent = translation.subtype;
-		document.querySelector('label[for="filter-supertype"]').textContent = translation.supertype;
-		document.querySelector('label[for="filter-release"]').textContent = translation.expansion;
-        document.querySelector('label[for="filter-menu"]').textContent = translation.filters;
-        document.querySelector('.selected-cards h2').textContent = translation.selectedCards;
-
-        // Cambia i testi dei pulsanti
-        const buttons = document.querySelectorAll('.button-deck');
-        if (buttons.length >= 3) { // Controlla se ci sono abbastanza pulsanti
-            buttons[0].textContent = translation.buttons.save;
-            buttons[1].textContent = translation.buttons.export;
-            buttons[2].textContent = translation.buttons.import;
-        }
-
-        document.querySelector('#search-form2 h2').textContent = translation.buttons.importDeck;
-        document.querySelector('#search-form2 input').placeholder = translation.import.placeholder;
-        
-        // Cambia le opzioni dei filtri
-        const filterMenu = document.querySelector('#filter-menu');
-        if (filterMenu && filterMenu.options.length >= 8) { // Controlla se il menu a tendina ha opzioni
-            filterMenu.options[0].textContent = translation.filterOptions.default;
-            filterMenu.options[1].textContent = translation.filterOptions.typology;
-            filterMenu.options[2].textContent = translation.filterOptions.subtype;
-            filterMenu.options[3].textContent = translation.filterOptions.format;
-            filterMenu.options[4].textContent = translation.filterOptions.type;
-            filterMenu.options[5].textContent = translation.filterOptions.edition;
-            filterMenu.options[6].textContent = translation.filterOptions.pokemon;
-            filterMenu.options[7].textContent = translation.filterOptions.releaseDate;
-        }
-
-        // Cambia le opzioni di ordinamento
-        const sortMenu = document.querySelector('#sort-menu');
-        if (sortMenu && sortMenu.options.length >= 6) { // Controlla se il menu a tendina ha opzioni
-            sortMenu.options[0].textContent = translation.sortOptions.default;
-            sortMenu.options[1].textContent = translation.sortOptions.name;
-            sortMenu.options[2].textContent = translation.sortOptions.text;
-            sortMenu.options[3].textContent = translation.sortOptions.typology;
-            sortMenu.options[4].textContent = translation.sortOptions.type;
-            sortMenu.options[5].textContent = translation.sortOptions.evolution;
-        }
-    }
-
-    // Aggiungi l'event listener per il cambio di lingua
-    const languageSwitch = document.querySelector("#switch-lang");
-    if (languageSwitch) {
-        languageSwitch.addEventListener("click", function () {
-            const currentFlag = document.querySelector("#flag-image").src;
-            if (currentFlag.includes("it.png")) {
-                document.querySelector("#flag-image").src = "media/uk.png";
-                switchLanguage("en");
-            } else {
-                document.querySelector("#flag-image").src = "media/it.png";
-                switchLanguage("it");
-            }
-        });
-    }
-
 });
 
 let currentPage = 1; // Pagina corrente iniziale
@@ -220,8 +40,7 @@ async function searchCards(page = 1) {
     }
 }
 
-
-
+// Funzione per mostrare le carte trovate
 function updateCardList(cards) {
     const cardListContainer = document.querySelector('.card-list');
     cardListContainer.innerHTML = '';
@@ -243,6 +62,7 @@ function updateCardList(cards) {
     });
 }
 
+//funzione per mostrare la carta selezionata
 async function selectCard(cardId) {
     const param = new URLSearchParams({id: cardId})
     let card;
@@ -514,7 +334,7 @@ function updatePagination(totalPages) {
     nextButton.disabled = currentPage === totalPages;
 }
 
-
+// Funzione per confrontare la carta selezionata con la collezione dell'utente
 function getMySleeve(cardId) {
     const xhr = new XMLHttpRequest();
     xhr.open("GET", `http://localhost:8080/api/auth/mySleeve?cardRequest=${cardId}`, false); // false per farlo sincrono
@@ -527,7 +347,7 @@ function getMySleeve(cardId) {
     }
 }
 
-
+// Funzione per aggiornare la quantità di carte nella collezione
 async function updateQuantity(cardId, change) {
     // Ottieni il riferimento all'elemento che mostra la quantità
     const quantityElement = document.getElementById(`quantity-${cardId}`);
@@ -578,12 +398,10 @@ document.getElementById('prev-page').addEventListener('click', () => {
         searchCards(currentPage);
     }
 });
-
 document.getElementById('next-page').addEventListener('click', () => {
     currentPage++;
     searchCards(currentPage);
 });
-
 // Aggiungi l'evento submit al form di ricerca
 document.getElementById('search-form1').addEventListener('submit', (event) => {
     event.preventDefault();

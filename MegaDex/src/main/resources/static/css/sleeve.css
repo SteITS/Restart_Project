@@ -259,7 +259,7 @@ form button:hover, .selected-card button:hover {
 }
 
 .selected-card{
-    padding: 10px 10px 0px 10px;
+    padding: 10px 10px 10px 10px;
     justify-content: center;
 }
 
@@ -286,7 +286,6 @@ form button:hover, .selected-card button:hover {
 #card-details {
     width: 25%;
     margin: 1.5em auto;
-
 }
 
 #selected-card-list {
