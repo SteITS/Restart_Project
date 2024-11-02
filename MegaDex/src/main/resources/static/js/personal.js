@@ -23,7 +23,7 @@ function setPlaceholders() {
                 document.getElementById("firstName-input").value = data.firstName;
                 document.getElementById("lastName-input").value = data.lastName;
                 document.getElementById("email-input").value = data.email;
-                document.getElementById("dob-input").value = data.dob.split('T')[0];
+                document.getElementById("dob-input").value = new Date(data.dob).toLocaleDateString('en-CA');
                 document.getElementById("phone-input").value = data.phone;
             })
 
