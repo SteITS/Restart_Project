@@ -10,7 +10,7 @@ html, body {
     padding: 0;
     display: flex;
     flex-direction: column;
-    position: relative;
+
 }
 
 body {
@@ -99,9 +99,9 @@ header nav ul li a:hover {
 }
 
 main {
-    margin-top: 0px;
     padding: 1em;
     flex: 1;
+    display: flex;
 }
 
 h1, h2, h3 {
@@ -111,6 +111,11 @@ h1, h2, h3 {
 
 #home h1 {
     color: #333; /* Colore per 'Welcome to PokemonDB, Trainer!' */
+}
+
+#login-section, #registration-form-section {
+    width: 48%;
+    height: min-content;
 }
 
 #login-section h2 {
@@ -132,8 +137,7 @@ section {
     border-radius: 10px;
     margin: 1.5em auto;
     padding: 1.5em;
-    width: 80%;
-    max-width: 900px;
+
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -186,13 +190,13 @@ input[type="checkbox"] {
     justify-content: space-around;
     margin-top: 20px;
 }
-.card {
+.card, .selected-card {
     padding: 10px;
     width: 200px;
     text-align: center;
 }
 
-.card img {
+.card img, .selected-card img {
     width: 100%;
     height: auto;
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transizione per l'immagine */
@@ -217,6 +221,21 @@ input[type="checkbox"] {
     transition: none; /* Assicura che il testo non si ingrandisca al passaggio del mouse */
 }
 
+.selected-card p {
+    display: flex;
+    font-size: 0.9em;
+    color: #333;
+    align-items: center;
+}
+.selected-card{
+    padding: 10px 10px 10px 10px;
+    justify-content: center;
+}
+.selected-card {
+    display: block;
+    margin: 1.5em auto;
+    width: 240px;
+}
 
 @keyframes fadeIn {
     from {
@@ -422,7 +441,7 @@ dl li {
     justify-content: space-around; /* Distribuisce lo spazio tra gli elementi */
 }
 
-#sleeves {
+#sleeves, #home {
     width: 70%;
     margin: 1.5em auto;
 }
@@ -431,6 +450,19 @@ dl li {
     color: #333;
     margin-bottom: 20px;
 }
+
+.card-details {
+    display: flex;
+    align-content: center;
+    margin-top: 20px;
+}
+
+#card-details {
+    width: 25%;
+    margin: 1.5em auto;
+    display: none;
+}
+
 .modal {
     display: none;
     position: fixed;

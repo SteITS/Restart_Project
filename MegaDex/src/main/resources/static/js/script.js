@@ -24,164 +24,256 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-
-
-document.addEventListener("DOMContentLoaded", function() {
-    // Definisci le traduzioni per italiano e inglese
-    const translations = {
-        it: {
-            welcomeTitle: "Benvenuto su MegaDex!",
-            welcomeMessage: "Esplora il mondo Pokémon e scopri tutto quello che c'è da sapere sui tuoi Pokémon preferiti.",
-            searchTitle: "Cerca una Carta di Pokémon",
-            searchPlaceholder: "Cerca una carta",
-            searchButton: "Cerca",
-            homeLink: "HOME",
-            deckbuilderLink: "DECKBUILDER",
-            communityLink: "COMMUNITY",
-            loginLink: "AREA PERSONALE",
-			collectionLink: "COLLEZIONE",
-            footerTitle: "Multinazionalona SPA",
-            footerAddress: "Via Esempio 123, 00100 Roma, Italia",
-            footerPhone: "+39 012 3456789",
-            footerEmail: "info@multinazionalona.it",
-            sleevesTitle: "Esplora le carte",
-            filterLabelSort: "Ordina per:",
-            filterLabelType: "Tipo:",
-            filterLabelSubtype: "Sottotipo:",
-            filterLabelSupertype: "Supertipo:",
-            filterLabelRelease: "Espansione:",
-			sortBy: "Ordina per:",
-			filters: "Filters:",
-			poss: "Possedute:",
-			typeBy: "Tipo:",
-			subtype:"Sottotipo:",
-			supertype:"Supertipo:",
-			expansion:"Espansione:",
-            currentPageText: "Pagina 1 di "
-        },
-        en: {
-            welcomeTitle: "Welcome to MegaDex!",
-            welcomeMessage: "Explore the Pokémon world and discover everything about your favorite Pokémon.",
-            searchTitle: "Search for a Pokémon Card",
-            searchPlaceholder: "Search for a card",
-            searchButton: "Search",
-            homeLink: "HOME",
-            deckbuilderLink: "DECKBUILDER",
-            communityLink: "COMMUNITY",
-            loginLink: "MY ACCOUNT",
-			collectionLink: "BINDER",
-            footerTitle: "Multinazionalona SPA",
-            footerAddress: "Via Example 123, 00100 Rome, Italy",
-            footerPhone: "+39 012 3456789",
-            footerEmail: "info@multinazionalona.it",
-            sleevesTitle: "Explore the Cards",
-            filterLabelSort: "Sort by:",
-            filterLabelType: "Type:",
-            filterLabelSubtype: "Subtype:",
-            filterLabelSupertype: "Supertype:",
-            filterLabelRelease: "Expansion:",
-			sortBy: "Sort by:",
-			filters: "Filters:",
-			poss: "Owned:",
-			typeBy: "Type:",
-			subtype:"Subtype:",
-			supertype:"Supertype:",
-			expansion:"Expansion:",
-            currentPageText: "Page 1 of "
+//funzione per mostrare la carta selezionata
+async function selectCard(cardId) {
+    document.getElementById('card-details').style.display = 'block';
+    const param = new URLSearchParams({id: cardId})
+    let card;
+    try {
+        const response = await fetch(`http://localhost:8080/api/deb/cardById?${param.toString()}`);
+        if (!response.ok) {
+            throw new Error("Errore durante il recupero della carta");
         }
-    };
-
-    // Seleziona gli elementi da tradurre
-    const elementsToTranslate = {
-        welcomeTitle: document.querySelector('#home h1'),
-        welcomeMessage: document.querySelector('#home p'),
-        searchTitle: document.querySelector('#sleeves h1'),  // Added the sleeves title
-        searchPlaceholder: document.querySelector('#search-form1 input[name="card-search"]'),
-        searchButton: document.querySelector('#search-form1 button'),
-        homeLink: document.querySelector('nav ul li:nth-child(1) a'),
-        deckbuilderLink: document.querySelector('nav ul li:nth-child(2) a'),
-        communityLink: document.querySelector('nav ul li:nth-child(3) a'),
-        loginLink: document.querySelector('nav ul li:nth-child(4) a'),
-		collectionLink: document.querySelector('nav ul li:nth-child(4) a'),
-        loginLink: document.querySelector('nav ul li:nth-child(5) a'),
-        footerTitle: document.querySelector('.footer-info h3'),
-        footerAddress: document.querySelector('.footer-info p:nth-child(2)'),
-        footerPhone: document.querySelector('.footer-info p:nth-child(3)'),
-        footerEmail: document.querySelector('.footer-info p:nth-child(4)'),
-        sleevesTitle: document.querySelector('#sleeves h1'), // Added the sleeves title
-		filterLabelSort: document.querySelector('#sort-menu').previousSibling, // Ordina per
-		    filterLabelType: document.querySelector('#filter-type').previousSibling, // Tipo
-		    filterLabelSubtype: document.querySelector('#filter-subtype').previousElementSibling, // Sottotipo
-		    filterLabelSupertype: document.querySelector('#filter-supertype').previousElementSibling, // Supertipo
-		    filterLabelRelease: document.querySelector('#filter-release').previousElementSibling, // Espansione
-		    currentPageText: document.querySelector('#current-page') // Pagina corrente
-
-
-
-
-    };
-
-    // Funzione per aggiornare la lingua della pagina
-    function switchLanguage(language) {
-        const translation = translations[language];
-
-        elementsToTranslate.welcomeTitle.textContent = translation.welcomeTitle;
-        elementsToTranslate.welcomeMessage.textContent = translation.welcomeMessage;
-        elementsToTranslate.searchTitle.textContent = translation.searchTitle;
-        elementsToTranslate.searchPlaceholder.placeholder = translation.searchPlaceholder;
-        elementsToTranslate.searchButton.textContent = translation.searchButton;
-        elementsToTranslate.homeLink.textContent = translation.homeLink;
-        elementsToTranslate.deckbuilderLink.textContent = translation.deckbuilderLink;
-        elementsToTranslate.communityLink.textContent = translation.communityLink;
-        elementsToTranslate.loginLink.textContent = translation.loginLink;
-		elementsToTranslate.collectionLink.textContent = translation.collectionLink;
-   /*     elementsToTranslate.footerTitle.textContent = translation.footerTitle;
-        elementsToTranslate.footerAddress.textContent = translation.footerAddress;
-        elementsToTranslate.footerPhone.textContent = translation.footerPhone;
-        elementsToTranslate.footerEmail.textContent = translation.footerEmail; 
-		elementsToTranslate.filterLabelSort.textContent = translation.filterLabelSort;
-		        elementsToTranslate.filterLabelType.textContent = translation.filterLabelType;
-		        elementsToTranslate.filterLabelSubtype.textContent = translation.filterLabelSubtype;
-		        elementsToTranslate.filterLabelSupertype.textContent = translation.filterLabelSupertype;
-		        elementsToTranslate.filterLabelRelease.textContent = translation.filterLabelRelease;
-		        elementsToTranslate.currentPageText.textContent = `Pagina ${currentPage} di ${totalPages}`; // Assuming these variables are defined
-				*/document.querySelector('label[for="sort-menu"]').textContent = translation.sortBy;
-				document.querySelector('label[for="filter-type"]').textContent = translation.typeBy;
-				document.querySelector('label[for="filter-subtype"]').textContent = translation.subtype;
-				document.querySelector('label[for="filter-supertype"]').textContent = translation.supertype;
-				document.querySelector('label[for="filter-release"]').textContent = translation.expansion;
+        card = await response.json();
+    } catch (error) {
+        console.error("Errore:", error);
     }
 
-    // Aggiungi gli event listener per i pulsanti delle bandiere
-    document.querySelectorAll('#language-switch button').forEach(button => {
-        button.addEventListener('click', function() {
-            const language = this.querySelector('img').src.includes('it.png') ? 'it' : 'en';
-            switchLanguage(language);
-        });
-    });
-});
+    const cardContainer = document.querySelector('.card-details');
+    cardContainer.innerHTML = '';
 
-// Funzione di cambio lingua (flag switcher)
-const languageSwitch = document.querySelectorAll("#language-switch button");
-    if (languageSwitch.length > 0) {
-        languageSwitch.forEach((button) => {
-            button.addEventListener("click", () => {
-                const currentFlag = button.querySelector("img").getAttribute("src");
-                if (currentFlag.includes("it")) {
-                    button.querySelector("img").setAttribute("src", "media/uk.png");
-                    // Aggiungi qui logica per cambiare effettivamente la lingua del sito
-                } else {
-                    button.querySelector("img").setAttribute("src", "media/it.png");
-                    // Aggiungi qui logica per cambiare effettivamente la lingua del sito
-                }
-            });
-        });
-    }
+    const cardElement = document.createElement('div');
+    cardElement.classList.add('card-item');
+    cardElement.innerHTML = `
+        <div class="selected-card">
+        <img src="${card.img}" alt="">
+        </div>
+       <div class="card-sheet">
+    <table>
+        <tbody>
+            ${card.id ? `
+                <tr>
+                    <td><strong>Id:</strong></td>
+                    <td>${card.id}</td>
+                </tr>
+                ` : ''}
+            ${card.set ? `
+                <tr>
+                    <td><strong>Set:</strong></td>
+                    <td>${card.set}</td>
+                </tr>
+                ` : ''}
+            ${card.series ? `
+                <tr>
+                    <td><strong>Serie:</strong></td>
+                    <td>${card.series}</td>
+                </tr>
+                ` : ''}
+            ${card.publisher ? `
+                <tr>
+                    <td><strong>Publisher:</strong></td>
+                    <td>${card.publisher}</td>
+                </tr>
+                ` : ''}
+            ${card.generation ? `
+                <tr>
+                    <td><strong>Generazione:</strong></td>
+                    <td>${card.generation}</td>
+                </tr>
+                ` : ''}
+            ${card.release_date ? `
+                <tr>
+                    <td><strong>Data di rilascio:</strong></td>
+                    <td>${card.release_date}</td>
+                </tr>
+                ` : ''}
+            ${card.artist ? `
+                <tr>
+                    <td><strong>Artista:</strong></td>
+                    <td>${card.artist}</td>
+                </tr>
+                ` : ''}
+            ${card.name ? `
+                <tr>
+                    <td><strong>Nome:</strong></td>
+                    <td>${card.name}</td>
+                </tr>
+                ` : ''}
+            ${card.set_num ? `
+                <tr>
+                    <td><strong>Numero del set:</strong></td>
+                    <td>${card.set_num}</td>
+                </tr>
+                ` : ''}
+            ${card.level ? `
+                <tr>
+                    <td><strong>Livello:</strong></td>
+                    <td>${card.level}</td>
+                </tr>
+                ` : ''}
+            ${card.hp ? `
+                <tr>
+                    <td><strong>Punti vita:</strong></td>
+                    <td>${card.hp}</td>
+                </tr>
+                ` : ''}
+            ${card.evolves_from ? `
+                <tr>
+                    <td><strong>Evoluzione da:</strong></td>
+                    <td>${card.evolves_from}</td>
+                </tr>
+                ` : ''}
+            ${card.evolves_to ? `
+                <tr>
+                    <td><strong>Evoluzione a:</strong></td>
+                    <td>${card.evolves_to}</td>
+                </tr>
+                ` : ''}
+            ${card.retreat_cost ? `
+                <tr>
+                    <td><strong>Costo di ritirata:</strong></td>
+                    <td>${card.retreat_cost}</td>
+                </tr>
+                ` : ''}
+            ${card.converted_retreat_cost ? `
+                <tr>
+                    <td><strong>Costo di ritirata convertito:</strong></td>
+                    <td>${card.converted_retreat_cost}</td>
+                </tr>
+                ` : ''}
+            ${card.rarity ? `
+                <tr>
+                    <td><strong>Rarità:</strong></td>
+                    <td>${card.rarity}</td>
+                </tr>
+                ` : ''}
+            ${card.flavor_text ? `
+                <tr>
+                    <td><strong>Testo descrittivo:</strong></td>
+                    <td>${card.flavor_text}</td>
+                </tr>
+                ` : ''}
+            ${card.national_pokedex_numbers ? `
+                <tr>
+                    <td><strong>Numero nel Pokédex nazionale:</strong></td>
+                    <td>${card.national_pokedex_numbers}</td>
+                </tr>    
+                ` : ''}
+            ${card.legalities ? `
+                <tr>
+                    <td><strong>Legalità:</strong></td>
+                    <td>${card.legalities}</td>
+                </tr>    
+                ` : ''}
+                ${card.rules ? `
+                    <tr>
+                    <td><strong>Regole:</strong></td>
+                    <td>${card.rules}</td>
+                    </tr>
+                ` : ''}
+                ${card.regulation_mark ? `
+                    <tr>
+                    <td><strong>Marchio di regolamento:</strong></td>
+                    <td>${card.regulation_mark}</td>
+                    </tr>
+                ` : ''}
+                ${card.ancient_trait ? `
+                       <tr>
+                       <td><strong>Tratto antico:</strong></td>
+                       <td>${card.ancient_trait}</td>
+                       </tr>
+                ` : ''}
+                
+                ${!(card.attacks.length === 0) && card.attacks ? `<tr><td><strong>Attacchi:</strong></td><td>` : ''}
+                ${!(card.attacks.length === 0) && card.attacks ? card.attacks.map(a =>
+        `
+                                <table>
+                                    <tbody>
+                                        <tr><td colspan="2"><strong>${a.attack_name}</strong></td></tr>
+                                        <tr><td><strong>Costo:</strong></td><td>${a.cost}</td></tr>
+                                        <tr><td><strong>Danno:</strong></td><td>${a.damage}</td></tr>
+                                        <tr><td><strong>Costo Convertito:</strong></td><td>${a.convertedEnergyCost}</td></tr>
+                                        <tr><td colspan="2">${a.text}</td></tr>
+                                    </tbody>
+                                </table>                                
+                                `
+    ).join('') : ''}
+                ${!(card.attacks.length === 0) && card.attacks ? `</td></tr>` : ''}
+                ${!(card.abilities.length === 0) && card.abilities ? `<tr><td><strong>Abilità:</strong></td><td>` : ''}
+                ${!(card.abilities.length === 0) && card.abilities ? card.abilities.map(a =>
+        `
+                                    <table>
+                                       <tbody>
+                                           <tr><td colspan="2"><strong>${a.name}</strong></td></tr>
+                                           <tr><td colspan="2">${a.text}</td></tr>
+                                           <tr><td><strong>Tipo:</strong></td><td>${a.type}</td></tr>
+                                       </tbody>
+                                    </table>
+                                    `
+    ).join('') : ''}
+                ${!(card.abilities.length === 0) && card.abilities ? `</td></tr>` : ''}
+            ${!(card.weaknesses.length === 0) && card.weaknesses ? `<tr><td><strong>Debolezze:</strong></td><td>` : ''}    
+            ${!(card.weaknesses.length === 0) && card.weaknesses ? card.weaknesses.map(a =>
+        `
+                                    <table>
+                                       <tbody>
+                                             <tr><td><strong>Tipo:</strong></td><td>${a.text}</td></tr>
+                                             <tr><td><strong>Valore:</strong></td><td>${a.value}</td></tr>
+                                       </tbody>
+                                    </table>
+                                    `
+    ).join('') : ''}
+            ${!(card.weaknesses.length === 0) && card.weaknesses ? `</td></tr>` : ''}
+            ${!(card.resistances.length === 0) && card.resistances ? `<tr><td><strong>Resistenze:</strong></td><td>` : ''}
+            ${!(card.resistances.length === 0) && card.resistances ? card.resistances.map(a =>
+        `
+                                    <table>
+                                       <tbody>
+                                             <tr><td><strong>Tipo:</strong></td><td>${a.type}</td></tr>
+                                             <tr><td><strong>Valore:</strong></td><td>${a.value}</td></tr>
+                                       </tbody>
+                                    </table>
+                                    `
+    ).join('') : ''}
+        ${!(card.resistances.length === 0) && card.resistances ? `</td></tr>` : ''}
+        ${!(card.types.length === 0) && card.types ? `<tr><td><strong>Tipi:</strong></td><td>` : ''}        
+            ${!(card.types.length === 0) && card.types ? card.types.map(a =>
+        `
+                                        <table>
+                                           <tbody>
+                                                 <tr>${a.name}</tr>
+                                           </tbody>
+                                        </table>
+                                        `
+    ).join('') : ''}
+            ${!(card.types.length === 0) && card.types ? `</td></tr>` : ''}
+            ${!(card.subtypes.length === 0) && card.subtypes ? `<tr><td><strong>Sottotipi:</strong></td><td>` : ''}     
+            ${!(card.subtypes.length === 0) && card.subtypes ? card.subtypes.map(a =>
+        `
+                <table>
+                   <tbody>
+                         <tr>${a.name}</tr>
+                   </tbody>
+                </table>
+                `
+    ).join('') : ''}
+        ${!(card.subtypes.length === 0) && card.subtypes ? `</td></tr>` : ''}        
+            <tr>
+                <td><strong>Supertipo:</strong></td>
+                <td>${card.supertype.name}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+    </div> 
+      `;
+    cardContainer.appendChild(cardElement);
+}
+
 	
-	let currentPage = 1; // Pagina corrente iniziale
-
+let currentPage = 1; // Pagina corrente iniziale
 	// Funzione per inviare la richiesta al controller con i parametri dei filtri
-	async function searchCards(page = 1) {
+async function searchCards(page = 1) {
 	    // Prevenire il comportamento predefinito del form
 	    const name = document.querySelector('input[name="card-search"]').value;
 	    const orderBy = document.getElementById("sort-menu").value;
@@ -221,7 +313,7 @@ const languageSwitch = document.querySelectorAll("#language-switch button");
 	}
 
 	// Funzione per aggiornare la lista delle carte in base ai risultati della ricerca
-	function updateCardList(cards) {
+function updateCardList(cards) {
 	    const cardListContainer = document.querySelector('.card-list');
 	    cardListContainer.innerHTML = '';
 
@@ -235,7 +327,7 @@ const languageSwitch = document.querySelectorAll("#language-switch button");
 	        cardElement.classList.add('card-item');
 	        cardElement.innerHTML = `
 	        <div class="card">
-	        <img src="${card.img}" alt="">      
+	        <img src="${card.img}" alt="" onclick="selectCard('${card.id}')">      
 	        </div>
 	      `;
 	        cardListContainer.appendChild(cardElement);
@@ -244,7 +336,7 @@ const languageSwitch = document.querySelectorAll("#language-switch button");
 
 
 	// Funzione per aggiornare i bottoni di navigazione
-	function updatePagination(totalPages) {
+function updatePagination(totalPages) {
 	    const prevButton = document.getElementById('prev-page');
 	    const nextButton = document.getElementById('next-page');
 	    const currentPageDisplay = document.getElementById('current-page');
@@ -255,7 +347,6 @@ const languageSwitch = document.querySelectorAll("#language-switch button");
 	    prevButton.disabled = currentPage === 1;
 	    nextButton.disabled = currentPage === totalPages;
 	}
-
 	// Event listeners per i bottoni di navigazione
 	document.getElementById('prev-page').addEventListener('click', () => {
 	    if (currentPage > 1) {
