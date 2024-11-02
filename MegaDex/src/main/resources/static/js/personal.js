@@ -55,6 +55,8 @@ function editSelf(){
         })
             .then(response => {
                 if (response.ok) {
+                    alert("Modifica avvenuta con successo!");
+                    window.location.href = "http://localhost:8080/personal.html";
                 }
                 if(response.status === 403){
                     throw new Error("Credenziali non valide");
@@ -76,27 +78,34 @@ function editSelf(){
             errorModal.style.display = "none";
         });
 }
-// Funzione per cancellare l'utente tramite chiamata DELETE al backend
+
+
+/**
+ * Funzione per eliminare l'account dell'utente.
+ * Recupera il token di autenticazione dal localStorage e invia una richiesta
+ * DELETE all'API per eliminare l'account dell'utente.
+ */
 function deleteUser() {
+    event.preventDefault();
     fetch('http://localhost:8080/api/auth/deleteSelf', {
         method: 'DELETE',
-        headers: {
-        }
     })
         .then(response => {
             if (response.ok) {
                 alert("Eliminazione avvenuta con successo!");
-                window.location.href = "login.html";
+                window.location.href = "http://localhost:8080/logout";
             }
         })
         .catch(error => {
-            // Mostra un messaggio di errore
-            errorMessage.textContent = error;
-            errorModal.style.display = "block";
+            alert("Errore durante l'eliminazione");
         });
 }
 
-// Funzione per gestire la conferma e l'azione
+/**
+ * Funzione per gestire la conferma e l'azione di eliminazione.
+ * Mostra un messaggio di conferma all'utente e, se confermato,
+ * chiama la funzione deleteUser per procedere con l'eliminazione.
+ */
 function confirmDelete() {
     if (confirm("Sei sicuro di voler procedere? Eliminando il tuo account perderai la tua collezione e i mazzi salvati!")) {
         deleteUser(); // Se l'utente conferma, esegui la funzione

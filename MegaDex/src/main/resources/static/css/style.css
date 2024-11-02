@@ -113,6 +113,11 @@ h1, h2, h3 {
     color: #333; /* Colore per 'Welcome to PokemonDB, Trainer!' */
 }
 
+#login-section, #registration-form-section {
+    width: 48%;
+    height: min-content;
+}
+
 #login-section h2 {
     color: #333; /* Colore per 'Trainer Login' */
 }
